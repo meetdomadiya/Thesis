@@ -1,0 +1,28 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var array $query
+ */
+
+$translate = $this->plugin('translate');
+?>
+
+<?php
+$element = new \Laminas\Form\Element\Radio('has_thumbnails');
+$element
+    ->setLabel('Presence of thumbnails') // @translate
+    ->setLabelAttributes(['class' => 'type-radio'])
+    ->setValueOptions([
+        '1' => 'Has thumbnails', // @translate
+        '0' => 'Has no thumbnails', // @translate
+        // Should be last because of "0".
+        '' => 'Any', // @translate
+    ])
+    ->setValue($query['has_thumbnails'] ?? '')
+    ->setAttributes([
+        'id' => 'has_thumbnails',
+        'class' => 'query-has-thumbnails',
+        'value' => $query['has_thumbnails'] ?? '',
+        'aria-label' => $translate('Search by presence of thumbnails'), // @translate
+    ]);
+echo $this->formRow($element);

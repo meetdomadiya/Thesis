@@ -1,0 +1,23 @@
+<?php
+
+$assetUrl = $this->plugin('assetUrl');
+$this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
+
+$style = "";
+if ($backgroundColor) { $style .= "--background-color: " . $backgroundColor . ";"; }
+
+?>
+
+<section class="call-to-action scheme-<?= $colorScheme ?>" >
+    <div class="cta-container" style="<?= $style ?>">
+        <?php if ($header): ?>
+            <h2><?= $header ?></h2>
+        <?php endif; ?>
+        <?php if ($subheader): ?>
+            <p><?= $subheader ?></p>
+        <?php endif; ?>
+        <a class="action-button" href="<?= $buttonLink ?>">
+            <?= $buttonText ?>
+        </a>
+    </div>
+</section>

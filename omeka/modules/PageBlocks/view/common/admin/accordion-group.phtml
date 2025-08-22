@@ -1,0 +1,16 @@
+<?php
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+
+$template = $escape($this->partial('common/admin/accordion-group-item'));
+?>
+
+<a href="#" class="collapse" aria-label="collapse">
+    <h4><?= $translate('Accordions') ?></h4>
+</a>
+<div class="attachments accordions collapsible" data-template="<?= $template ?>">
+    <button class="accordion-form-add" type="button"><?= $translate('Add accordion') ?></button>
+    <?php foreach ($accordions as $accordion) {
+        echo $this->partial('common/admin/accordion-group-item', ['accordion' => $accordion]);
+    } ?>
+</div>

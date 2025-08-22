@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ */
+
+$plugins = $this->getHelperPluginManager();
+$url = $plugins->get('url');
+$translate = $plugins->get('translate');
+$hyperlink = $plugins->get('hyperlink');
+?>
+
+<ul>
+    <li>
+        <?php $href = $url('site/guest/guest', ['action' => 'update-account'], [], true); ?>
+        <?= $hyperlink($translate('Update account info and password'), $href) ?>
+    </li>
+    <li>
+        <?php $href = $url('site/guest/guest', ['action' => 'update-email'], [], true); ?>
+        <?= $hyperlink($translate('Update email'), $href) ?>
+    </li>
+    <li>
+        <?php $href = $url('site/guest/guest', ['action' => 'logout'], [], true); ?>
+        <?= $hyperlink($translate('Logout'), $href) ?>
+    </li>
+</ul>

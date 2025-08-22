@@ -1,0 +1,61 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SiteRepresentation $site
+ * @var \Omeka\Entity\User $user
+ * @var \Omeka\Form\UserForm $form
+ */
+
+$plugins = $this->getHelperPluginManager();
+$assetUrl = $plugins->get('assetUrl');
+$translate = $plugins->get('translate');
+$pageTitle = $plugins->get('pageTitle');
+$breadcrumbs = $plugins->has('breadcrumbs') ? $plugins->get('breadcrumbs') : null;
+$guestNavigation = $plugins->get('guestNavigation')();
+
+$hasGuestNav = (bool) $guestNavigation->getContainer()->count();
+
+$script = <<<'JS'
+$(document).ready( function() {
+    $('.chosen-select').chosen({
+        allow_single_deselect: true,
+        disable_search_threshold: 10,
+        width: '100%',
+        include_group_label_in_selected: true,
+    });
+});
+JS;
+$this->headLink()
+    ->prependStylesheet($assetUrl('vendor/chosen-js/chosen.min.css', 'Omeka'));
+$this->headScript()
+    ->appendFile($assetUrl('vendor/chosen-js/chosen.jquery.min.js', 'Omeka'))
+    ->appendScript($script);
+
+$this->htmlElement('body')->appendAttribute('class', 'guest account');
+
+$form->prepare();
+?>
+
+<?php if ($breadcrumbs && !$hasGuestNav): ?>
+<?= $breadcrumbs() ?>
+<?php endif; ?>
+
+<?php if ($hasGuestNav): ?>
+<nav class="navigation-guest">
+    <?= $guestNavigation->menu()->renderMenu() ?>
+</nav>
+<?php endif; ?>
+
+<?= $this->messages() ?>
+
+<?= $pageTitle($this->label) ?>
+
+<?= $this->form()->openTag($form) ?>
+<?= $this->formCollection($form, false) ?>
+<?php $this->trigger('view.add.form.after'); ?>
+<div id="page-actions">
+    <button type="submit" class="button"><?= $translate('Update') ?></button>
+</div>
+<?= $this->form()->closeTag() ?>
+
+<?php $this->trigger('view.add.after'); ?>

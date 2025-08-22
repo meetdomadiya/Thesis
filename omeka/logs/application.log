@@ -1,0 +1,1744 @@
+2025-03-28T15:19:33+00:00 ERR (3):
+2025-03-28T15:19:33+00:00 ERR (3): Command "command -v 'convert'" failed with status code 127.
+2025-03-28T15:19:33+00:00 ERR (3): Omeka\File\Exception\InvalidThumbnailerException: ImageMagick error: cannot determine path to ImageMagick command. in /var/www/omeka/application/src/File/Thumbnailer/ImageMagick.php:117
+Stack trace:
+#0 /var/www/omeka/application/src/File/Thumbnailer/ImageMagick.php(41): Omeka\File\Thumbnailer\ImageMagick->setConvertPath()
+#1 /var/www/omeka/application/src/File/TempFile.php(264): Omeka\File\Thumbnailer\ImageMagick->setOptions()
+#2 /var/www/omeka/application/src/File/TempFile.php(439): Omeka\File\TempFile->storeThumbnails()
+#3 /var/www/omeka/application/src/Media/Ingester/Upload.php(61): Omeka\File\TempFile->mediaIngestFile()
+#4 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Upload->ingest()
+#5 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#6 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#7 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#8 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(354): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#9 /var/www/omeka/application/src/Api/Manager.php(224): Omeka\Api\Adapter\AbstractEntityAdapter->create()
+#10 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#11 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(99): Omeka\Api\Manager->create()
+#12 /var/www/omeka/application/src/Controller/Admin/ItemController.php(215): Omeka\Mvc\Controller\Plugin\Api->create()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->addAction()
+#14 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#16 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#18 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#19 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#20 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#21 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#22 {main}
+2025-03-28T15:25:03+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: Unable to resolve service "/usr/bin/convert" to a factory; are you certain you provided it during configuration? in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php:559
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(614): Laminas\ServiceManager\ServiceManager->getFactory()
+#1 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(257): Laminas\ServiceManager\ServiceManager->doCreate()
+#2 /var/www/omeka/application/src/File/ThumbnailManager.php(36): Laminas\ServiceManager\ServiceManager->build()
+#3 /var/www/omeka/application/src/File/TempFile.php(258): Omeka\File\ThumbnailManager->buildThumbnailer()
+#4 /var/www/omeka/application/src/File/TempFile.php(439): Omeka\File\TempFile->storeThumbnails()
+#5 /var/www/omeka/application/src/Media/Ingester/Upload.php(61): Omeka\File\TempFile->mediaIngestFile()
+#6 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Upload->ingest()
+#7 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#8 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#9 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#10 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(354): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#11 /var/www/omeka/application/src/Api/Manager.php(224): Omeka\Api\Adapter\AbstractEntityAdapter->create()
+#12 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#13 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(99): Omeka\Api\Manager->create()
+#14 /var/www/omeka/application/src/Controller/Admin/ItemController.php(215): Omeka\Mvc\Controller\Plugin\Api->create()
+#15 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->addAction()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#17 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#18 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#19 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#20 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#21 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#22 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#23 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#24 {main}
+2025-03-28T15:28:23+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: Unable to resolve service "/usr/bin/convert" to a factory; are you certain you provided it during configuration? in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php:559
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(614): Laminas\ServiceManager\ServiceManager->getFactory()
+#1 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(257): Laminas\ServiceManager\ServiceManager->doCreate()
+#2 /var/www/omeka/application/src/File/ThumbnailManager.php(36): Laminas\ServiceManager\ServiceManager->build()
+#3 /var/www/omeka/application/src/File/TempFile.php(258): Omeka\File\ThumbnailManager->buildThumbnailer()
+#4 /var/www/omeka/application/src/File/TempFile.php(439): Omeka\File\TempFile->storeThumbnails()
+#5 /var/www/omeka/application/src/Media/Ingester/Upload.php(61): Omeka\File\TempFile->mediaIngestFile()
+#6 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Upload->ingest()
+#7 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#8 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#9 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#10 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(354): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#11 /var/www/omeka/application/src/Api/Manager.php(224): Omeka\Api\Adapter\AbstractEntityAdapter->create()
+#12 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#13 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(99): Omeka\Api\Manager->create()
+#14 /var/www/omeka/application/src/Controller/Admin/ItemController.php(215): Omeka\Mvc\Controller\Plugin\Api->create()
+#15 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->addAction()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#17 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#18 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#19 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#20 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#21 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#22 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#23 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#24 {main}
+2025-03-28T15:31:32+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: Unable to resolve service "/usr/bin" to a factory; are you certain you provided it during configuration? in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php:559
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(614): Laminas\ServiceManager\ServiceManager->getFactory()
+#1 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(257): Laminas\ServiceManager\ServiceManager->doCreate()
+#2 /var/www/omeka/application/src/File/ThumbnailManager.php(36): Laminas\ServiceManager\ServiceManager->build()
+#3 /var/www/omeka/application/src/File/TempFile.php(258): Omeka\File\ThumbnailManager->buildThumbnailer()
+#4 /var/www/omeka/application/src/File/TempFile.php(439): Omeka\File\TempFile->storeThumbnails()
+#5 /var/www/omeka/application/src/Media/Ingester/Upload.php(61): Omeka\File\TempFile->mediaIngestFile()
+#6 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Upload->ingest()
+#7 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#8 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#9 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#10 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(354): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#11 /var/www/omeka/application/src/Api/Manager.php(224): Omeka\Api\Adapter\AbstractEntityAdapter->create()
+#12 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#13 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(99): Omeka\Api\Manager->create()
+#14 /var/www/omeka/application/src/Controller/Admin/ItemController.php(215): Omeka\Mvc\Controller\Plugin\Api->create()
+#15 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->addAction()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#17 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#18 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#19 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#20 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#21 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#22 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#23 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#24 {main}
+2025-03-28T15:44:54+00:00 ERR (3): sh: 1: usr/bin//convert: not found
+
+2025-03-28T15:44:54+00:00 ERR (3): Command "usr/bin//convert --version" failed with status code 127.
+2025-03-28T15:44:57+00:00 ERR (3): sh: 1: usr/bin//convert: not found
+
+2025-03-28T15:44:57+00:00 ERR (3): Command "usr/bin//convert --version" failed with status code 127.
+2025-03-28T15:45:27+00:00 ERR (3): sh: 1: usr/bin/convert: not found
+
+2025-03-28T15:45:27+00:00 ERR (3): Command "usr/bin/convert --version" failed with status code 127.
+2025-03-28T15:47:54+00:00 ERR (3): sh: 1: usr/bin/convert: not found
+
+2025-03-28T15:47:54+00:00 ERR (3): Command "usr/bin/convert --version" failed with status code 127.
+2025-03-28T15:49:44+00:00 ERR (3):
+2025-03-28T15:49:44+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T15:49:44+00:00 ERR (3):
+2025-03-28T15:49:44+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T15:49:44+00:00 ERR (3):
+2025-03-28T15:49:44+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T15:49:44+00:00 ERR (3):
+2025-03-28T15:49:44+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-28T15:49:44+00:00 ERR (3):
+2025-03-28T15:49:44+00:00 ERR (3): Command "command -v 'tesseract'" failed with status code 127.
+2025-03-28T15:57:32+00:00 ERR (3):
+2025-03-28T15:57:32+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T15:57:32+00:00 ERR (3):
+2025-03-28T15:57:32+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T15:57:32+00:00 ERR (3):
+2025-03-28T15:57:32+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T15:57:32+00:00 ERR (3):
+2025-03-28T15:57:32+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-28T15:57:32+00:00 ERR (3):
+2025-03-28T15:57:32+00:00 ERR (3): Command "command -v 'tesseract'" failed with status code 127.
+2025-03-28T15:57:50+00:00 ERR (3):
+2025-03-28T15:57:50+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T15:57:50+00:00 ERR (3):
+2025-03-28T15:57:50+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T15:57:50+00:00 ERR (3):
+2025-03-28T15:57:50+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T15:57:50+00:00 ERR (3):
+2025-03-28T15:57:50+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-28T15:57:50+00:00 ERR (3):
+2025-03-28T15:57:50+00:00 ERR (3): Command "command -v 'tesseract'" failed with status code 127.
+2025-03-28T15:58:33+00:00 ERR (3):
+2025-03-28T15:58:33+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T15:58:33+00:00 ERR (3):
+2025-03-28T15:58:33+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T15:58:33+00:00 ERR (3):
+2025-03-28T15:58:33+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T15:58:33+00:00 ERR (3):
+2025-03-28T15:58:33+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-28T15:58:33+00:00 ERR (3):
+2025-03-28T15:58:33+00:00 ERR (3): Command "command -v 'tesseract'" failed with status code 127.
+2025-03-28T16:00:39+00:00 ERR (3):
+2025-03-28T16:00:39+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T16:00:39+00:00 ERR (3):
+2025-03-28T16:00:39+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T16:00:39+00:00 ERR (3):
+2025-03-28T16:00:39+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T16:00:39+00:00 ERR (3):
+2025-03-28T16:00:39+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-28T16:02:05+00:00 ERR (3):
+2025-03-28T16:02:05+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T16:02:05+00:00 ERR (3):
+2025-03-28T16:02:05+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T16:02:05+00:00 ERR (3):
+2025-03-28T16:02:05+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T16:02:05+00:00 ERR (3):
+2025-03-28T16:02:05+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-28T16:05:22+00:00 ERR (3): Error opening data file /usr/share/tesseract-ocr/5/tessdata/deu.traineddata
+Please make sure the TESSDATA_PREFIX environment variable is set to your "tessdata" directory.
+Failed loading language 'deu'
+Tesseract couldn't load any languages!
+Could not initialize tesseract.
+
+2025-03-28T16:05:22+00:00 ERR (3): Command "/usr/bin/tesseract '/var/www/omeka/files/original/bceb7ce1eb72bbe1c4a0e516d6c3a17d5543095a.jpg' - -l 'deu' --psm '3' --oem '3' quiet" failed with status code 1.
+2025-03-28T16:06:15+00:00 ERR (3): Error opening data file /usr/share/tesseract-ocr/5/tessdata/deu.traineddata
+Please make sure the TESSDATA_PREFIX environment variable is set to your "tessdata" directory.
+Failed loading language 'deu'
+Tesseract couldn't load any languages!
+Could not initialize tesseract.
+
+2025-03-28T16:06:15+00:00 ERR (3): Command "/usr/bin/tesseract '/var/www/omeka/files/original/bceb7ce1eb72bbe1c4a0e516d6c3a17d5543095a.jpg' - -l 'deu' --psm '3' --oem '3' quiet" failed with status code 1.
+2025-03-28T16:06:21+00:00 ERR (3):
+2025-03-28T16:06:21+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T16:06:21+00:00 ERR (3):
+2025-03-28T16:06:21+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T16:06:21+00:00 ERR (3):
+2025-03-28T16:06:21+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T16:06:21+00:00 ERR (3):
+2025-03-28T16:06:21+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-28T16:09:46+00:00 ERR (3):
+2025-03-28T16:09:46+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T16:09:46+00:00 ERR (3):
+2025-03-28T16:09:46+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T16:09:46+00:00 ERR (3):
+2025-03-28T16:09:46+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T16:09:46+00:00 ERR (3):
+2025-03-28T16:09:46+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-28T16:19:52+00:00 ERR (3):
+2025-03-28T16:19:52+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T16:19:52+00:00 ERR (3):
+2025-03-28T16:19:52+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T16:19:52+00:00 ERR (3):
+2025-03-28T16:19:52+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T16:19:52+00:00 ERR (3):
+2025-03-28T16:19:52+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-28T16:37:06+00:00 ERR (3):
+2025-03-28T16:37:06+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T16:37:06+00:00 ERR (3):
+2025-03-28T16:37:06+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T16:37:06+00:00 ERR (3):
+2025-03-28T16:37:06+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T16:37:06+00:00 ERR (3):
+2025-03-28T16:37:06+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-28T16:42:14+00:00 ERR (3):
+2025-03-28T16:42:14+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T16:42:14+00:00 ERR (3):
+2025-03-28T16:42:14+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T16:42:14+00:00 ERR (3):
+2025-03-28T16:42:14+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T16:42:14+00:00 ERR (3):
+2025-03-28T16:42:14+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-28T16:43:21+00:00 ERR (3):
+2025-03-28T16:43:21+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-28T16:43:21+00:00 ERR (3):
+2025-03-28T16:43:21+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-28T16:43:21+00:00 ERR (3):
+2025-03-28T16:43:21+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-28T16:43:21+00:00 ERR (3):
+2025-03-28T16:43:21+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-29T10:45:00+00:00 NOTICE (5): Processed 1/1 pdf files, 0 files tsv created, 1 failed (0 without file, 0 without text layer, 0 with issue).
+2025-03-29T11:40:31+00:00 ERR (3):
+2025-03-29T11:40:31+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-29T11:40:31+00:00 ERR (3):
+2025-03-29T11:40:31+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-29T11:40:32+00:00 ERR (3):
+2025-03-29T11:40:32+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-29T11:40:32+00:00 ERR (3):
+2025-03-29T11:40:32+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-03-30T11:40:16+00:00 ERR (3):
+2025-03-30T11:40:16+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-03-30T11:40:16+00:00 ERR (3):
+2025-03-30T11:40:16+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-03-30T11:40:16+00:00 ERR (3):
+2025-03-30T11:40:16+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-03-30T11:40:16+00:00 ERR (3):
+2025-03-30T11:40:16+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-04-06T11:02:39+00:00 ERR (3): Error: Failed opening required '/var/www/omeka/modules/Common/TraitModule.php' (include_path='.:/usr/share/php') in /var/www/omeka/modules/Deduplicate/Module.php:36
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-loader/src/ModuleAutoloader.php(258): require_once()
+#1 /var/www/omeka/vendor/laminas/laminas-loader/src/ModuleAutoloader.php(210): Laminas\Loader\ModuleAutoloader->loadModuleFromDir()
+#2 /var/www/omeka/application/src/Module/Manager.php(354): Laminas\Loader\ModuleAutoloader->autoload()
+#3 /var/www/omeka/application/src/Module/Manager.php(225): Omeka\Module\Manager->getModuleObject()
+#4 /var/www/omeka/application/src/Controller/Admin/ModuleController.php(117): Omeka\Module\Manager->install()
+#5 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ModuleController->installAction()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#12 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#13 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#14 {main}
+2025-04-11T16:18:25+00:00 ERR (3): Omeka\Api\Exception\NotFoundException: Omeka\Entity\Item entity with criteria {"id":"25"} not found in /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php:722
+Stack trace:
+#0 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(440): Omeka\Api\Adapter\AbstractEntityAdapter->findEntity()
+#1 /var/www/omeka/application/src/Api/Manager.php(230): Omeka\Api\Adapter\AbstractEntityAdapter->read()
+#2 /var/www/omeka/application/src/Api/Manager.php(115): Omeka\Api\Manager->execute()
+#3 /var/www/omeka/application/src/Controller/ApiController.php(81): Omeka\Api\Manager->read()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractRestfulController.php(373): Omeka\Controller\ApiController->get()
+#5 /var/www/omeka/application/src/Controller/ApiController.php(169): Laminas\Mvc\Controller\AbstractRestfulController->onDispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Omeka\Controller\ApiController->onDispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractRestfulController.php(307): Laminas\Mvc\Controller\AbstractController->dispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractRestfulController->dispatch()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#14 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#15 {main}
+2025-04-11T16:18:31+00:00 ERR (3): Omeka\Api\Exception\NotFoundException: Omeka\Entity\Item entity with criteria {"id":"4"} not found in /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php:722
+Stack trace:
+#0 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(440): Omeka\Api\Adapter\AbstractEntityAdapter->findEntity()
+#1 /var/www/omeka/application/src/Api/Manager.php(230): Omeka\Api\Adapter\AbstractEntityAdapter->read()
+#2 /var/www/omeka/application/src/Api/Manager.php(115): Omeka\Api\Manager->execute()
+#3 /var/www/omeka/application/src/Controller/ApiController.php(81): Omeka\Api\Manager->read()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractRestfulController.php(373): Omeka\Controller\ApiController->get()
+#5 /var/www/omeka/application/src/Controller/ApiController.php(169): Laminas\Mvc\Controller\AbstractRestfulController->onDispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Omeka\Controller\ApiController->onDispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractRestfulController.php(307): Laminas\Mvc\Controller\AbstractController->dispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractRestfulController->dispatch()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#14 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#15 {main}
+2025-04-20T09:45:38+00:00 ERR (3): Omeka\Api\Exception\PermissionDeniedException: Permission denied for the current user to search the Omeka\Api\Adapter\JobAdapter resource. in /var/www/omeka/application/src/Api/Manager.php:208
+Stack trace:
+#0 /var/www/omeka/application/src/Api/Manager.php(59): Omeka\Api\Manager->execute()
+#1 /var/www/omeka/modules/AdvancedSearch/src/Api/ManagerDelegator.php(74): Omeka\Api\Manager->search()
+#2 /var/www/omeka/application/src/Controller/ApiController.php(103): AdvancedSearch\Api\ManagerDelegator->search()
+#3 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractRestfulController.php(377): Omeka\Controller\ApiController->getList()
+#4 /var/www/omeka/application/src/Controller/ApiController.php(169): Laminas\Mvc\Controller\AbstractRestfulController->onDispatch()
+#5 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Omeka\Controller\ApiController->onDispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractRestfulController.php(307): Laminas\Mvc\Controller\AbstractController->dispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractRestfulController->dispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#12 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#13 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#14 {main}
+2025-04-20T09:46:10+00:00 ERR (3): Omeka\Api\Exception\NotFoundException: Omeka\Entity\Item entity with criteria {"id":"21"} not found in /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php:722
+Stack trace:
+#0 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(440): Omeka\Api\Adapter\AbstractEntityAdapter->findEntity()
+#1 /var/www/omeka/application/src/Api/Manager.php(230): Omeka\Api\Adapter\AbstractEntityAdapter->read()
+#2 /var/www/omeka/application/src/Api/Manager.php(115): Omeka\Api\Manager->execute()
+#3 /var/www/omeka/application/src/Controller/ApiController.php(81): Omeka\Api\Manager->read()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractRestfulController.php(373): Omeka\Controller\ApiController->get()
+#5 /var/www/omeka/application/src/Controller/ApiController.php(169): Laminas\Mvc\Controller\AbstractRestfulController->onDispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Omeka\Controller\ApiController->onDispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractRestfulController.php(307): Laminas\Mvc\Controller\AbstractController->dispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractRestfulController->dispatch()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#14 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#15 {main}
+2025-04-20T09:46:15+00:00 ERR (3): Omeka\Api\Exception\NotFoundException: Omeka\Entity\Item entity with criteria {"id":"34"} not found in /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php:722
+Stack trace:
+#0 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(440): Omeka\Api\Adapter\AbstractEntityAdapter->findEntity()
+#1 /var/www/omeka/application/src/Api/Manager.php(230): Omeka\Api\Adapter\AbstractEntityAdapter->read()
+#2 /var/www/omeka/application/src/Api/Manager.php(115): Omeka\Api\Manager->execute()
+#3 /var/www/omeka/application/src/Controller/ApiController.php(81): Omeka\Api\Manager->read()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractRestfulController.php(373): Omeka\Controller\ApiController->get()
+#5 /var/www/omeka/application/src/Controller/ApiController.php(169): Laminas\Mvc\Controller\AbstractRestfulController->onDispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Omeka\Controller\ApiController->onDispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractRestfulController.php(307): Laminas\Mvc\Controller\AbstractController->dispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractRestfulController->dispatch()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#14 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#15 {main}
+2025-05-02T08:14:20+00:00 ERR (3):
+2025-05-02T08:14:20+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-05-02T08:14:20+00:00 ERR (3):
+2025-05-02T08:14:20+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-05-02T08:14:20+00:00 ERR (3):
+2025-05-02T08:14:20+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-05-02T08:14:20+00:00 ERR (3):
+2025-05-02T08:14:20+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-05-03T09:59:23+00:00 ERR (3): Error: Call to undefined method TeiExporter\Module::install() in /var/www/omeka/application/src/Module/Manager.php:225
+Stack trace:
+#0 /var/www/omeka/application/src/Controller/Admin/ModuleController.php(117): Omeka\Module\Manager->install()
+#1 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ModuleController->installAction()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#5 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#9 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#10 {main}
+2025-05-03T10:02:36+00:00 ERR (3): TypeError: TeiExporter\Module::install(): Argument #1 ($messenger) must be of type Omeka\Mvc\Controller\Plugin\Messenger, Laminas\ServiceManager\ServiceManager given, called in /var/www/omeka/application/src/Module/Manager.php on line 225 and defined in /var/www/omeka/modules/TeiExporter/Module.php:25
+Stack trace:
+#0 /var/www/omeka/application/src/Module/Manager.php(225): TeiExporter\Module->install()
+#1 /var/www/omeka/application/src/Controller/Admin/ModuleController.php(117): Omeka\Module\Manager->install()
+#2 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ModuleController->installAction()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#4 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#5 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#6 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#10 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#11 {main}
+2025-05-03T10:05:05+00:00 ERR (3): TypeError: TeiExporter\Module::install(): Argument #1 ($manager) must be of type Omeka\Module\Manager, Laminas\ServiceManager\ServiceManager given, called in /var/www/omeka/application/src/Module/Manager.php on line 225 and defined in /var/www/omeka/modules/TeiExporter/Module.php:31
+Stack trace:
+#0 /var/www/omeka/application/src/Module/Manager.php(225): TeiExporter\Module->install()
+#1 /var/www/omeka/application/src/Controller/Admin/ModuleController.php(117): Omeka\Module\Manager->install()
+#2 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ModuleController->installAction()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#4 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#5 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#6 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#10 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#11 {main}
+2025-05-03T10:09:27+00:00 ERR (3): TypeError: TeiExporter\Module::install(): Argument #1 ($manager) must be of type Omeka\Module\Manager, Laminas\ServiceManager\ServiceManager given, called in /var/www/omeka/application/src/Module/Manager.php on line 225 and defined in /var/www/omeka/modules/TeiExporter/Module.php:31
+Stack trace:
+#0 /var/www/omeka/application/src/Module/Manager.php(225): TeiExporter\Module->install()
+#1 /var/www/omeka/application/src/Controller/Admin/ModuleController.php(117): Omeka\Module\Manager->install()
+#2 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ModuleController->installAction()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#4 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#5 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#6 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#10 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#11 {main}
+2025-05-05T16:46:22+00:00 ERR (3): Error: Call to undefined method Omeka\Entity\Item::value() in /var/www/omeka/modules/TeiExporter/src/Listener/ItemEventListener.php:24
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): TeiExporter\Listener\ItemEventListener->exportTei()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-05T16:52:00+00:00 ERR (3): Error: Call to undefined method Omeka\Entity\Item::value() in /var/www/omeka/modules/TeiExporter/src/Listener/ItemEventListener.php:24
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): TeiExporter\Listener\ItemEventListener->exportTei()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-05T16:52:16+00:00 ERR (3): Error: Call to undefined method Omeka\Entity\Item::value() in /var/www/omeka/modules/TeiExporter/src/Listener/ItemEventListener.php:24
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): TeiExporter\Listener\ItemEventListener->exportTei()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-05T16:53:26+00:00 ERR (3): Error: Call to undefined method Omeka\Entity\Item::value() in /var/www/omeka/modules/TeiExporter/src/Listener/ItemEventListener.php:24
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): TeiExporter\Listener\ItemEventListener->exportTei()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-05T16:55:29+00:00 ERR (3): Error: Call to undefined method Omeka\Entity\Item::value() in /var/www/omeka/modules/TeiExporter/src/Listener/ItemEventListener.php:24
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): TeiExporter\Listener\ItemEventListener->exportTei()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-05T16:55:44+00:00 ERR (3): Error: Call to undefined method Omeka\Entity\Item::value() in /var/www/omeka/modules/TeiExporter/src/Listener/ItemEventListener.php:24
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): TeiExporter\Listener\ItemEventListener->exportTei()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-05T17:01:00+00:00 ERR (3): Error: Call to undefined method DoctrineProxies\__CG__\Omeka\Entity\Property::getTerm() in /var/www/omeka/modules/TeiExporter/src/Listener/ItemEventListener.php:37
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): TeiExporter\Listener\ItemEventListener->exportTei()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-05T17:16:55+00:00 ERR (3): TypeError: TeiExporter\Listener\ItemEventListener::generateTei(): Argument #1 ($item) must be of type Omeka\Api\Representation\ItemRepresentation, Omeka\Entity\Item given, called in /var/www/omeka/modules/TeiExporter/src/Listener/ItemEventListener.php on line 17 and defined in /var/www/omeka/modules/TeiExporter/src/Listener/ItemEventListener.php:23
+Stack trace:
+#0 /var/www/omeka/modules/TeiExporter/src/Listener/ItemEventListener.php(17): TeiExporter\Listener\ItemEventListener->generateTei()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): TeiExporter\Listener\ItemEventListener->exportTei()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#3 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#4 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#5 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#6 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#7 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#12 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#14 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#15 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#16 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#17 {main}
+2025-05-07T15:31:13+00:00 ERR (3): Error: Call to undefined method Omeka\Entity\Item::id() in /var/www/omeka/modules/TeiExporter/src/Listener/ItemEventListener.php:14
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): TeiExporter\Listener\ItemEventListener->exportTei()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-11T10:15:58+00:00 ERR (3): Omeka\Module\Exception\ModuleStateInvalidException: Module "TeiExporter" is marked as "invalid_ini" and cannot be installed in /var/www/omeka/application/src/Module/Manager.php:218
+Stack trace:
+#0 /var/www/omeka/application/src/Controller/Admin/ModuleController.php(117): Omeka\Module\Manager->install()
+#1 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ModuleController->installAction()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#5 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#9 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#10 {main}
+2025-05-11T10:17:16+00:00 ERR (3): Omeka\Module\Exception\ModuleStateInvalidException: Module "TeiExporter" is marked as "invalid_ini" and cannot be installed in /var/www/omeka/application/src/Module/Manager.php:218
+Stack trace:
+#0 /var/www/omeka/application/src/Controller/Admin/ModuleController.php(117): Omeka\Module\Manager->install()
+#1 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ModuleController->installAction()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#5 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#9 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#10 {main}
+2025-05-11T10:18:15+00:00 ERR (3): Omeka\Module\Exception\ModuleStateInvalidException: Module "TeiExporter" is marked as "invalid_ini" and cannot be installed in /var/www/omeka/application/src/Module/Manager.php:218
+Stack trace:
+#0 /var/www/omeka/application/src/Controller/Admin/ModuleController.php(117): Omeka\Module\Manager->install()
+#1 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ModuleController->installAction()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#5 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#9 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#10 {main}
+2025-05-18T14:25:37+00:00 ERR (3): TypeError: NotifyOnItemChange\Module::onItemChange(): Argument #1 ($event) must be of type Omeka\Event\Event, Laminas\EventManager\Event given, called in /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php on line 319 and defined in /var/www/omeka/modules/NotifyOnItemChange/Module.php:28
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): NotifyOnItemChange\Module->onItemChange()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-18T14:28:15+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: Unable to resolve service "NotifyOnItemChange\Service\FileNotifier" to a factory; are you certain you provided it during configuration? in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php:559
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(614): Laminas\ServiceManager\ServiceManager->getFactory()
+#1 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(234): Laminas\ServiceManager\ServiceManager->doCreate()
+#2 /var/www/omeka/modules/NotifyOnItemChange/Module.php(36): Laminas\ServiceManager\ServiceManager->get()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): NotifyOnItemChange\Module->onItemChange()
+#4 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#5 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#6 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#7 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#8 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#9 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#18 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#19 {main}
+2025-05-18T14:31:18+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: Unable to resolve service "NotifyOnItemChange\Service\FileNotifier" to a factory; are you certain you provided it during configuration? in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php:559
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(614): Laminas\ServiceManager\ServiceManager->getFactory()
+#1 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(234): Laminas\ServiceManager\ServiceManager->doCreate()
+#2 /var/www/omeka/modules/NotifyOnItemChange/Module.php(36): Laminas\ServiceManager\ServiceManager->get()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): NotifyOnItemChange\Module->onItemChange()
+#4 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#5 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#6 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#7 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#8 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#9 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#18 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#19 {main}
+2025-05-18T14:33:48+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: Unable to resolve service "NotifyOnItemChange\Service\FileNotifier" to a factory; are you certain you provided it during configuration? in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php:559
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(614): Laminas\ServiceManager\ServiceManager->getFactory()
+#1 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(234): Laminas\ServiceManager\ServiceManager->doCreate()
+#2 /var/www/omeka/modules/NotifyOnItemChange/Module.php(36): Laminas\ServiceManager\ServiceManager->get()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): NotifyOnItemChange\Module->onItemChange()
+#4 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#5 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#6 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#7 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#8 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#9 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#18 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#19 {main}
+2025-05-18T14:36:27+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: Unable to resolve service "NotifyOnItemChange\Service\FileNotifier" to a factory; are you certain you provided it during configuration? in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php:559
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(614): Laminas\ServiceManager\ServiceManager->getFactory()
+#1 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(234): Laminas\ServiceManager\ServiceManager->doCreate()
+#2 /var/www/omeka/modules/NotifyOnItemChange/Module.php(36): Laminas\ServiceManager\ServiceManager->get()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): NotifyOnItemChange\Module->onItemChange()
+#4 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#5 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#6 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#7 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#8 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#9 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#18 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#19 {main}
+2025-05-18T14:38:06+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: Unable to resolve service "NotifyOnItemChange\Service\FileNotifier" to a factory; are you certain you provided it during configuration? in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php:559
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(614): Laminas\ServiceManager\ServiceManager->getFactory()
+#1 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(234): Laminas\ServiceManager\ServiceManager->doCreate()
+#2 /var/www/omeka/modules/NotifyOnItemChange/Module.php(36): Laminas\ServiceManager\ServiceManager->get()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): NotifyOnItemChange\Module->onItemChange()
+#4 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#5 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#6 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#7 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#8 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#9 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#18 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#19 {main}
+2025-05-18T14:38:49+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: Unable to resolve service "NotifyOnItemChange\Service\FileNotifier" to a factory; are you certain you provided it during configuration? in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php:559
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(614): Laminas\ServiceManager\ServiceManager->getFactory()
+#1 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(234): Laminas\ServiceManager\ServiceManager->doCreate()
+#2 /var/www/omeka/modules/NotifyOnItemChange/Module.php(36): Laminas\ServiceManager\ServiceManager->get()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): NotifyOnItemChange\Module->onItemChange()
+#4 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#5 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#6 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#7 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#8 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#9 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#18 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#19 {main}
+2025-05-18T14:43:55+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: Unable to resolve service "NotifyOnItemChange\Service\FileNotifier" to a factory; are you certain you provided it during configuration? in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php:559
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(614): Laminas\ServiceManager\ServiceManager->getFactory()
+#1 /var/www/omeka/vendor/laminas/laminas-servicemanager/src/ServiceManager.php(234): Laminas\ServiceManager\ServiceManager->doCreate()
+#2 /var/www/omeka/modules/NotifyOnItemChange/Module.php(36): Laminas\ServiceManager\ServiceManager->get()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): NotifyOnItemChange\Module->onItemChange()
+#4 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#5 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#6 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#7 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#8 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#9 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#18 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#19 {main}
+2025-05-30T14:55:52+00:00 ERR (3): Error: Call to undefined method Omeka\Entity\Item::id() in /var/www/omeka/modules/ActivityLogger/Module.php:34
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): ActivityLogger\Module->logItemUpdate()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-30T14:56:57+00:00 ERR (3): Error: Call to undefined method Omeka\Entity\Item::getDisplayTitle() in /var/www/omeka/modules/ActivityLogger/Module.php:34
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): ActivityLogger\Module->logItemUpdate()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-30T14:57:51+00:00 ERR (3): Error: Call to undefined method Omeka\Entity\Item::getValue() in /var/www/omeka/modules/ActivityLogger/Module.php:37
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): ActivityLogger\Module->logItemUpdate()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-30T14:59:39+00:00 ERR (3): Error: Call to undefined method DoctrineProxies\__CG__\Omeka\Entity\Property::getTerm() in /var/www/omeka/modules/ActivityLogger/Module.php:29
+Stack trace:
+#0 /var/www/omeka/modules/ActivityLogger/Module.php(47): ActivityLogger\Module->getPropertyValue()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): ActivityLogger\Module->logItemUpdate()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#3 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#4 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#5 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#6 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#7 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#12 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#14 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#15 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#16 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#17 {main}
+2025-05-30T18:36:58+00:00 ERR (3): Error: Call to undefined method Omeka\Entity\Item::getValue() in /var/www/omeka/modules/ActivityLogger/Module.php:47
+Stack trace:
+#0 /var/www/omeka/modules/ActivityLogger/Module.php(40): ActivityLogger\Module->logItemData()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): ActivityLogger\Module->logItemUpdate()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#3 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#4 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#5 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#6 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#7 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#12 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#14 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#15 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#16 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#17 {main}
+2025-05-30T18:39:05+00:00 ERR (3): TypeError: ActivityLogger\Module::logItemData(): Argument #1 ($item) must be of type Omeka\Api\Representation\ItemRepresentation, Omeka\Entity\Item given, called in /var/www/omeka/modules/ActivityLogger/Module.php on line 40 and defined in /var/www/omeka/modules/ActivityLogger/Module.php:43
+Stack trace:
+#0 /var/www/omeka/modules/ActivityLogger/Module.php(40): ActivityLogger\Module->logItemData()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): ActivityLogger\Module->logItemUpdate()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#3 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#4 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#5 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#6 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#7 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#12 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#14 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#15 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#16 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#17 {main}
+2025-05-30T18:42:01+00:00 ERR (3): Error: Call to undefined method AdvancedSearch\Api\ManagerDelegator::getRepresentation() in /var/www/omeka/modules/ActivityLogger/Module.php:42
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): ActivityLogger\Module->logItemUpdate()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#2 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#3 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#4 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#5 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#6 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#15 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#16 {main}
+2025-05-31T14:17:45+00:00 ERR (3): TypeError: ActivityLogger\Module::logItemData(): Argument #1 ($item) must be of type Omeka\Api\Representation\ItemRepresentation, Omeka\Entity\Item given, called in /var/www/omeka/modules/ActivityLogger/Module.php on line 94 and defined in /var/www/omeka/modules/ActivityLogger/Module.php:97
+Stack trace:
+#0 /var/www/omeka/modules/ActivityLogger/Module.php(94): ActivityLogger\Module->logItemData()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): ActivityLogger\Module->logItemUpdate()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#3 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#4 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#5 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#6 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#7 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#12 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#14 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#15 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#16 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#17 {main}
+2025-05-31T14:32:45+00:00 ERR (3): TypeError: ActivityLogger\Module::logItemData(): Argument #1 ($item) must be of type Omeka\Api\Representation\ItemRepresentation, Omeka\Entity\Item given, called in /var/www/omeka/modules/ActivityLogger/Module.php on line 147 and defined in /var/www/omeka/modules/ActivityLogger/Module.php:150
+Stack trace:
+#0 /var/www/omeka/modules/ActivityLogger/Module.php(147): ActivityLogger\Module->logItemData()
+#1 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): ActivityLogger\Module->logItemUpdate()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#3 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#4 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#5 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#6 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#7 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#12 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#13 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#14 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#15 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#16 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#17 {main}
+2025-06-06T15:07:50+00:00 ERR (3):
+2025-06-06T15:07:50+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-06-06T15:07:50+00:00 ERR (3):
+2025-06-06T15:07:50+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-06-06T15:07:50+00:00 ERR (3):
+2025-06-06T15:07:50+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-06-06T15:07:50+00:00 ERR (3):
+2025-06-06T15:07:50+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-06-06T15:11:14+00:00 ERR (3):
+2025-06-06T15:11:14+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-06-06T15:11:14+00:00 ERR (3):
+2025-06-06T15:11:14+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-06-06T15:11:14+00:00 ERR (3):
+2025-06-06T15:11:14+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-06-06T15:11:14+00:00 ERR (3):
+2025-06-06T15:11:14+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-06-06T15:14:41+00:00 ERR (3):
+2025-06-06T15:14:41+00:00 ERR (3): Command "command -v 'catdoc'" failed with status code 127.
+2025-06-06T15:14:41+00:00 ERR (3):
+2025-06-06T15:14:41+00:00 ERR (3): Command "command -v 'docx2txt'" failed with status code 127.
+2025-06-06T15:14:41+00:00 ERR (3):
+2025-06-06T15:14:41+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-06-06T15:14:41+00:00 ERR (3):
+2025-06-06T15:14:41+00:00 ERR (3): Command "command -v 'odt2txt'" failed with status code 127.
+2025-06-07T13:57:56+00:00 ERR (3): Laminas\Mail\Transport\Exception\RuntimeException: Unable to send mail: Unknown error in /var/www/omeka/vendor/laminas/laminas-mail/src/Transport/Sendmail.php:298
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-mail/src/Transport/Sendmail.php(130): Laminas\Mail\Transport\Sendmail->mailHandler()
+#1 /var/www/omeka/application/src/Stdlib/Mailer.php(86): Laminas\Mail\Transport\Sendmail->send()
+#2 /var/www/omeka/application/src/Stdlib/Mailer.php(237): Omeka\Stdlib\Mailer->send()
+#3 /var/www/omeka/application/src/Controller/Admin/UserController.php(115): Omeka\Stdlib\Mailer->sendUserActivation()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\UserController->addAction()
+#5 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#12 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#13 {main}
+2025-06-07T14:02:51+00:00 ERR (3): Laminas\Mail\Transport\Exception\RuntimeException: Unable to send mail: Unknown error in /var/www/omeka/vendor/laminas/laminas-mail/src/Transport/Sendmail.php:298
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-mail/src/Transport/Sendmail.php(130): Laminas\Mail\Transport\Sendmail->mailHandler()
+#1 /var/www/omeka/application/src/Stdlib/Mailer.php(86): Laminas\Mail\Transport\Sendmail->send()
+#2 /var/www/omeka/application/src/Stdlib/Mailer.php(237): Omeka\Stdlib\Mailer->send()
+#3 /var/www/omeka/application/src/Controller/Admin/UserController.php(115): Omeka\Stdlib\Mailer->sendUserActivation()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\UserController->addAction()
+#5 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#12 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#13 {main}
+2025-06-29T11:22:26+00:00 ERR (3): "https://127.0.1.1:8443/exist/rest/db/tei/item_77.xml" (internal_id) is not a valid item set.
+2025-06-29T11:22:26+00:00 ERR (3): ErrorException: stream_socket_enable_crypto(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000086:SSL routines::certificate verify failed in /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php:397
+Stack trace:
+#0 [internal function]: Laminas\Stdlib\ErrorHandler::addError()
+#1 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(397): stream_socket_enable_crypto()
+#2 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(355): Laminas\Http\Client\Adapter\Socket->enableCryptoTransport()
+#3 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(1465): Laminas\Http\Client\Adapter\Socket->connect()
+#4 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(965): Laminas\Http\Client->doRequest()
+#5 /var/www/omeka/application/src/File/Downloader.php(64): Laminas\Http\Client->send()
+#6 /var/www/omeka/application/src/Media/Ingester/Url.php(63): Omeka\File\Downloader->download()
+#7 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Url->ingest()
+#8 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#9 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#10 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#11 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(354): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#12 /var/www/omeka/application/src/Api/Manager.php(224): Omeka\Api\Adapter\AbstractEntityAdapter->create()
+#13 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#14 /var/www/omeka/modules/CSVImport/src/Job/Import.php(357): Omeka\Api\Manager->create()
+#15 /var/www/omeka/modules/CSVImport/src/Job/Import.php(266): CSVImport\Job\Import->create()
+#16 /var/www/omeka/modules/CSVImport/src/Job/Import.php(205): CSVImport\Job\Import->processBatchData()
+#17 /var/www/omeka/application/src/Job/DispatchStrategy/Synchronous.php(34): CSVImport\Job\Import->perform()
+#18 /var/www/omeka/modules/Common/src/Job/Dispatcher.php(27): Omeka\Job\DispatchStrategy\Synchronous->send()
+#19 /var/www/omeka/application/data/scripts/perform-job.php(66): Common\Job\Dispatcher->send()
+#20 {main}
+
+Next Laminas\Http\Client\Adapter\Exception\RuntimeException: Unable to enable crypto on TCP connection 127.0.1.1: make sure the "sslcafile" or "sslcapath" option are properly set for the environment. in /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php:426
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(355): Laminas\Http\Client\Adapter\Socket->enableCryptoTransport()
+#1 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(1465): Laminas\Http\Client\Adapter\Socket->connect()
+#2 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(965): Laminas\Http\Client->doRequest()
+#3 /var/www/omeka/application/src/File/Downloader.php(64): Laminas\Http\Client->send()
+#4 /var/www/omeka/application/src/Media/Ingester/Url.php(63): Omeka\File\Downloader->download()
+#5 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Url->ingest()
+#6 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#7 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#8 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#9 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(354): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#10 /var/www/omeka/application/src/Api/Manager.php(224): Omeka\Api\Adapter\AbstractEntityAdapter->create()
+#11 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#12 /var/www/omeka/modules/CSVImport/src/Job/Import.php(357): Omeka\Api\Manager->create()
+#13 /var/www/omeka/modules/CSVImport/src/Job/Import.php(266): CSVImport\Job\Import->create()
+#14 /var/www/omeka/modules/CSVImport/src/Job/Import.php(205): CSVImport\Job\Import->processBatchData()
+#15 /var/www/omeka/application/src/Job/DispatchStrategy/Synchronous.php(34): CSVImport\Job\Import->perform()
+#16 /var/www/omeka/modules/Common/src/Job/Dispatcher.php(27): Omeka\Job\DispatchStrategy\Synchronous->send()
+#17 /var/www/omeka/application/data/scripts/perform-job.php(66): Common\Job\Dispatcher->send()
+#18 {main}
+2025-06-29T11:22:26+00:00 ERR (3): exception 'Omeka\Api\Exception\ValidationException' in /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php:662
+Errors:
+{
+    "o:media": [
+        {
+            "download": [
+                "Error downloading https:\/\/127.0.1.1:8443\/exist\/rest\/db\/tei\/item_77.xml: Unable to enable crypto on TCP connection 127.0.1.1: make sure the \"sslcafile\" or \"sslcapath\" option are properly set for the environment."
+            ]
+        }
+    ]
+}
+Stack trace:
+#0 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(354): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#1 /var/www/omeka/application/src/Api/Manager.php(224): Omeka\Api\Adapter\AbstractEntityAdapter->create()
+#2 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#3 /var/www/omeka/modules/CSVImport/src/Job/Import.php(357): Omeka\Api\Manager->create()
+#4 /var/www/omeka/modules/CSVImport/src/Job/Import.php(266): CSVImport\Job\Import->create()
+#5 /var/www/omeka/modules/CSVImport/src/Job/Import.php(205): CSVImport\Job\Import->processBatchData()
+#6 /var/www/omeka/application/src/Job/DispatchStrategy/Synchronous.php(34): CSVImport\Job\Import->perform()
+#7 /var/www/omeka/modules/Common/src/Job/Dispatcher.php(27): Omeka\Job\DispatchStrategy\Synchronous->send()
+#8 /var/www/omeka/application/data/scripts/perform-job.php(66): Common\Job\Dispatcher->send()
+#9 {main}
+2025-06-29T11:26:57+00:00 ERR (3): A media to create is not attached to an item (url: https://127.0.1.1:8443/exist/rest/db/tei/item_77.xml).
+2025-06-29T11:44:41+00:00 ERR (3): ErrorException: stream_socket_enable_crypto(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000086:SSL routines::certificate verify failed in /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php:397
+Stack trace:
+#0 [internal function]: Laminas\Stdlib\ErrorHandler::addError()
+#1 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(397): stream_socket_enable_crypto()
+#2 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(355): Laminas\Http\Client\Adapter\Socket->enableCryptoTransport()
+#3 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(1465): Laminas\Http\Client\Adapter\Socket->connect()
+#4 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(965): Laminas\Http\Client->doRequest()
+#5 /var/www/omeka/application/src/File/Downloader.php(64): Laminas\Http\Client->send()
+#6 /var/www/omeka/application/src/Media/Ingester/Url.php(63): Omeka\File\Downloader->download()
+#7 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Url->ingest()
+#8 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#9 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#10 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#11 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(354): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#12 /var/www/omeka/application/src/Api/Manager.php(224): Omeka\Api\Adapter\AbstractEntityAdapter->create()
+#13 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#14 /var/www/omeka/modules/CSVImport/src/Job/Import.php(357): Omeka\Api\Manager->create()
+#15 /var/www/omeka/modules/CSVImport/src/Job/Import.php(266): CSVImport\Job\Import->create()
+#16 /var/www/omeka/modules/CSVImport/src/Job/Import.php(205): CSVImport\Job\Import->processBatchData()
+#17 /var/www/omeka/application/src/Job/DispatchStrategy/Synchronous.php(34): CSVImport\Job\Import->perform()
+#18 /var/www/omeka/modules/Common/src/Job/Dispatcher.php(27): Omeka\Job\DispatchStrategy\Synchronous->send()
+#19 /var/www/omeka/application/data/scripts/perform-job.php(66): Common\Job\Dispatcher->send()
+#20 {main}
+
+Next Laminas\Http\Client\Adapter\Exception\RuntimeException: Unable to enable crypto on TCP connection 127.0.1.1: make sure the "sslcafile" or "sslcapath" option are properly set for the environment. in /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php:426
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(355): Laminas\Http\Client\Adapter\Socket->enableCryptoTransport()
+#1 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(1465): Laminas\Http\Client\Adapter\Socket->connect()
+#2 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(965): Laminas\Http\Client->doRequest()
+#3 /var/www/omeka/application/src/File/Downloader.php(64): Laminas\Http\Client->send()
+#4 /var/www/omeka/application/src/Media/Ingester/Url.php(63): Omeka\File\Downloader->download()
+#5 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Url->ingest()
+#6 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#7 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#8 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#9 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(354): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#10 /var/www/omeka/application/src/Api/Manager.php(224): Omeka\Api\Adapter\AbstractEntityAdapter->create()
+#11 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#12 /var/www/omeka/modules/CSVImport/src/Job/Import.php(357): Omeka\Api\Manager->create()
+#13 /var/www/omeka/modules/CSVImport/src/Job/Import.php(266): CSVImport\Job\Import->create()
+#14 /var/www/omeka/modules/CSVImport/src/Job/Import.php(205): CSVImport\Job\Import->processBatchData()
+#15 /var/www/omeka/application/src/Job/DispatchStrategy/Synchronous.php(34): CSVImport\Job\Import->perform()
+#16 /var/www/omeka/modules/Common/src/Job/Dispatcher.php(27): Omeka\Job\DispatchStrategy\Synchronous->send()
+#17 /var/www/omeka/application/data/scripts/perform-job.php(66): Common\Job\Dispatcher->send()
+#18 {main}
+2025-06-29T11:44:41+00:00 ERR (3): exception 'Omeka\Api\Exception\ValidationException' in /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php:662
+Errors:
+{
+    "o:media": [
+        {
+            "download": [
+                "Error downloading https:\/\/127.0.1.1:8443\/exist\/rest\/db\/tei\/item_77.xml: Unable to enable crypto on TCP connection 127.0.1.1: make sure the \"sslcafile\" or \"sslcapath\" option are properly set for the environment."
+            ]
+        }
+    ]
+}
+Stack trace:
+#0 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(354): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#1 /var/www/omeka/application/src/Api/Manager.php(224): Omeka\Api\Adapter\AbstractEntityAdapter->create()
+#2 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#3 /var/www/omeka/modules/CSVImport/src/Job/Import.php(357): Omeka\Api\Manager->create()
+#4 /var/www/omeka/modules/CSVImport/src/Job/Import.php(266): CSVImport\Job\Import->create()
+#5 /var/www/omeka/modules/CSVImport/src/Job/Import.php(205): CSVImport\Job\Import->processBatchData()
+#6 /var/www/omeka/application/src/Job/DispatchStrategy/Synchronous.php(34): CSVImport\Job\Import->perform()
+#7 /var/www/omeka/modules/Common/src/Job/Dispatcher.php(27): Omeka\Job\DispatchStrategy\Synchronous->send()
+#8 /var/www/omeka/application/data/scripts/perform-job.php(66): Common\Job\Dispatcher->send()
+#9 {main}
+2025-06-29T11:47:49+00:00 ERR (3): ErrorException: stream_socket_enable_crypto(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000086:SSL routines::certificate verify failed in /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php:397
+Stack trace:
+#0 [internal function]: Laminas\Stdlib\ErrorHandler::addError()
+#1 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(397): stream_socket_enable_crypto()
+#2 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(355): Laminas\Http\Client\Adapter\Socket->enableCryptoTransport()
+#3 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(1465): Laminas\Http\Client\Adapter\Socket->connect()
+#4 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(965): Laminas\Http\Client->doRequest()
+#5 /var/www/omeka/application/src/File/Downloader.php(64): Laminas\Http\Client->send()
+#6 /var/www/omeka/application/src/Media/Ingester/Url.php(63): Omeka\File\Downloader->download()
+#7 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Url->ingest()
+#8 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#9 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#10 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#11 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(453): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#12 /var/www/omeka/application/src/Api/Manager.php(233): Omeka\Api\Adapter\AbstractEntityAdapter->update()
+#13 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#14 /var/www/omeka/modules/CSVImport/src/Job/Import.php(801): Omeka\Api\Manager->update()
+#15 /var/www/omeka/modules/CSVImport/src/Job/Import.php(430): CSVImport\Job\Import->append()
+#16 /var/www/omeka/modules/CSVImport/src/Job/Import.php(305): CSVImport\Job\Import->update()
+#17 /var/www/omeka/modules/CSVImport/src/Job/Import.php(205): CSVImport\Job\Import->processBatchData()
+#18 /var/www/omeka/application/src/Job/DispatchStrategy/Synchronous.php(34): CSVImport\Job\Import->perform()
+#19 /var/www/omeka/modules/Common/src/Job/Dispatcher.php(27): Omeka\Job\DispatchStrategy\Synchronous->send()
+#20 /var/www/omeka/application/data/scripts/perform-job.php(66): Common\Job\Dispatcher->send()
+#21 {main}
+
+Next Laminas\Http\Client\Adapter\Exception\RuntimeException: Unable to enable crypto on TCP connection 127.0.1.1: make sure the "sslcafile" or "sslcapath" option are properly set for the environment. in /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php:426
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(355): Laminas\Http\Client\Adapter\Socket->enableCryptoTransport()
+#1 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(1465): Laminas\Http\Client\Adapter\Socket->connect()
+#2 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(965): Laminas\Http\Client->doRequest()
+#3 /var/www/omeka/application/src/File/Downloader.php(64): Laminas\Http\Client->send()
+#4 /var/www/omeka/application/src/Media/Ingester/Url.php(63): Omeka\File\Downloader->download()
+#5 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Url->ingest()
+#6 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#7 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#8 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#9 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(453): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#10 /var/www/omeka/application/src/Api/Manager.php(233): Omeka\Api\Adapter\AbstractEntityAdapter->update()
+#11 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#12 /var/www/omeka/modules/CSVImport/src/Job/Import.php(801): Omeka\Api\Manager->update()
+#13 /var/www/omeka/modules/CSVImport/src/Job/Import.php(430): CSVImport\Job\Import->append()
+#14 /var/www/omeka/modules/CSVImport/src/Job/Import.php(305): CSVImport\Job\Import->update()
+#15 /var/www/omeka/modules/CSVImport/src/Job/Import.php(205): CSVImport\Job\Import->processBatchData()
+#16 /var/www/omeka/application/src/Job/DispatchStrategy/Synchronous.php(34): CSVImport\Job\Import->perform()
+#17 /var/www/omeka/modules/Common/src/Job/Dispatcher.php(27): Omeka\Job\DispatchStrategy\Synchronous->send()
+#18 /var/www/omeka/application/data/scripts/perform-job.php(66): Common\Job\Dispatcher->send()
+#19 {main}
+2025-06-29T11:47:49+00:00 ERR (3): exception 'Omeka\Api\Exception\ValidationException' in /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php:662
+Errors:
+{
+    "o:media": [
+        {
+            "download": [
+                "Error downloading https:\/\/127.0.1.1:8443\/exist\/rest\/db\/tei\/item_77.xml: Unable to enable crypto on TCP connection 127.0.1.1: make sure the \"sslcafile\" or \"sslcapath\" option are properly set for the environment."
+            ]
+        }
+    ]
+}
+Stack trace:
+#0 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(453): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#1 /var/www/omeka/application/src/Api/Manager.php(233): Omeka\Api\Adapter\AbstractEntityAdapter->update()
+#2 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#3 /var/www/omeka/modules/CSVImport/src/Job/Import.php(801): Omeka\Api\Manager->update()
+#4 /var/www/omeka/modules/CSVImport/src/Job/Import.php(430): CSVImport\Job\Import->append()
+#5 /var/www/omeka/modules/CSVImport/src/Job/Import.php(305): CSVImport\Job\Import->update()
+#6 /var/www/omeka/modules/CSVImport/src/Job/Import.php(205): CSVImport\Job\Import->processBatchData()
+#7 /var/www/omeka/application/src/Job/DispatchStrategy/Synchronous.php(34): CSVImport\Job\Import->perform()
+#8 /var/www/omeka/modules/Common/src/Job/Dispatcher.php(27): Omeka\Job\DispatchStrategy\Synchronous->send()
+#9 /var/www/omeka/application/data/scripts/perform-job.php(66): Common\Job\Dispatcher->send()
+#10 {main}
+2025-06-29T11:47:49+00:00 NOTICE (5): None of the 1 items were updated (append).
+2025-06-29T11:47:49+00:00 ERR (3): Doctrine\ORM\ORMInvalidArgumentException: Detached entity Omeka\Entity\Value@1507 cannot be removed in /var/www/omeka/vendor/doctrine/orm/lib/Doctrine/ORM/ORMInvalidArgumentException.php:172
+Stack trace:
+#0 /var/www/omeka/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(1906): Doctrine\ORM\ORMInvalidArgumentException::detachedEntityCannot()
+#1 /var/www/omeka/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(1857): Doctrine\ORM\UnitOfWork->doRemove()
+#2 /var/www/omeka/vendor/doctrine/orm/lib/Doctrine/ORM/UnitOfWork.php(394): Doctrine\ORM\UnitOfWork->remove()
+#3 /var/www/omeka/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php(392): Doctrine\ORM\UnitOfWork->commit()
+#4 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(455): Doctrine\ORM\EntityManager->flush()
+#5 /var/www/omeka/application/src/Api/Manager.php(233): Omeka\Api\Adapter\AbstractEntityAdapter->update()
+#6 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#7 /var/www/omeka/modules/CSVImport/src/Job/Import.php(1241): Omeka\Api\Manager->update()
+#8 /var/www/omeka/modules/CSVImport/src/Job/Import.php(214): CSVImport\Job\Import->endJob()
+#9 /var/www/omeka/application/src/Job/DispatchStrategy/Synchronous.php(34): CSVImport\Job\Import->perform()
+#10 /var/www/omeka/modules/Common/src/Job/Dispatcher.php(27): Omeka\Job\DispatchStrategy\Synchronous->send()
+#11 /var/www/omeka/application/data/scripts/perform-job.php(66): Common\Job\Dispatcher->send()
+#12 {main}
+2025-06-29T12:00:24+00:00 ERR (3): ErrorException: stream_socket_enable_crypto(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000086:SSL routines::certificate verify failed in /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php:397
+Stack trace:
+#0 [internal function]: Laminas\Stdlib\ErrorHandler::addError()
+#1 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(397): stream_socket_enable_crypto()
+#2 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(355): Laminas\Http\Client\Adapter\Socket->enableCryptoTransport()
+#3 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(1465): Laminas\Http\Client\Adapter\Socket->connect()
+#4 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(965): Laminas\Http\Client->doRequest()
+#5 /var/www/omeka/application/src/File/Downloader.php(64): Laminas\Http\Client->send()
+#6 /var/www/omeka/application/src/Media/Ingester/Url.php(63): Omeka\File\Downloader->download()
+#7 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Url->ingest()
+#8 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#9 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#10 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#11 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(453): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#12 /var/www/omeka/application/src/Api/Manager.php(233): Omeka\Api\Adapter\AbstractEntityAdapter->update()
+#13 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#14 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#15 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#16 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#17 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#18 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#19 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#20 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#21 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#22 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#23 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#24 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#25 {main}
+
+Next Laminas\Http\Client\Adapter\Exception\RuntimeException: Unable to enable crypto on TCP connection 127.0.1.1: make sure the "sslcafile" or "sslcapath" option are properly set for the environment. in /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php:426
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(355): Laminas\Http\Client\Adapter\Socket->enableCryptoTransport()
+#1 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(1465): Laminas\Http\Client\Adapter\Socket->connect()
+#2 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(965): Laminas\Http\Client->doRequest()
+#3 /var/www/omeka/application/src/File/Downloader.php(64): Laminas\Http\Client->send()
+#4 /var/www/omeka/application/src/Media/Ingester/Url.php(63): Omeka\File\Downloader->download()
+#5 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Url->ingest()
+#6 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#7 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#8 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#9 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(453): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#10 /var/www/omeka/application/src/Api/Manager.php(233): Omeka\Api\Adapter\AbstractEntityAdapter->update()
+#11 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#12 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#13 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#18 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#19 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#20 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#21 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#22 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#23 {main}
+2025-06-29T12:01:37+00:00 ERR (3): ErrorException: stream_socket_enable_crypto(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000086:SSL routines::certificate verify failed in /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php:397
+Stack trace:
+#0 [internal function]: Laminas\Stdlib\ErrorHandler::addError()
+#1 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(397): stream_socket_enable_crypto()
+#2 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(355): Laminas\Http\Client\Adapter\Socket->enableCryptoTransport()
+#3 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(1465): Laminas\Http\Client\Adapter\Socket->connect()
+#4 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(965): Laminas\Http\Client->doRequest()
+#5 /var/www/omeka/application/src/File/Downloader.php(64): Laminas\Http\Client->send()
+#6 /var/www/omeka/application/src/Media/Ingester/Url.php(63): Omeka\File\Downloader->download()
+#7 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Url->ingest()
+#8 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#9 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#10 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#11 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(453): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#12 /var/www/omeka/application/src/Api/Manager.php(233): Omeka\Api\Adapter\AbstractEntityAdapter->update()
+#13 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#14 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#15 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#16 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#17 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#18 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#19 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#20 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#21 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#22 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#23 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#24 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#25 {main}
+
+Next Laminas\Http\Client\Adapter\Exception\RuntimeException: Unable to enable crypto on TCP connection 127.0.1.1: make sure the "sslcafile" or "sslcapath" option are properly set for the environment. in /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php:426
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-http/src/Client/Adapter/Socket.php(355): Laminas\Http\Client\Adapter\Socket->enableCryptoTransport()
+#1 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(1465): Laminas\Http\Client\Adapter\Socket->connect()
+#2 /var/www/omeka/vendor/laminas/laminas-http/src/Client.php(965): Laminas\Http\Client->doRequest()
+#3 /var/www/omeka/application/src/File/Downloader.php(64): Laminas\Http\Client->send()
+#4 /var/www/omeka/application/src/Media/Ingester/Url.php(63): Omeka\File\Downloader->download()
+#5 /var/www/omeka/application/src/Api/Adapter/MediaAdapter.php(170): Omeka\Media\Ingester\Url->ingest()
+#6 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\MediaAdapter->hydrate()
+#7 /var/www/omeka/application/src/Api/Adapter/ItemAdapter.php(306): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#8 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(643): Omeka\Api\Adapter\ItemAdapter->hydrate()
+#9 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(453): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#10 /var/www/omeka/application/src/Api/Manager.php(233): Omeka\Api\Adapter\AbstractEntityAdapter->update()
+#11 /var/www/omeka/application/src/Api/Manager.php(136): Omeka\Api\Manager->execute()
+#12 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(152): Omeka\Api\Manager->update()
+#13 /var/www/omeka/application/src/Controller/Admin/ItemController.php(254): Omeka\Mvc\Controller\Plugin\Api->update()
+#14 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ItemController->editAction()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#16 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#18 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#19 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#20 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#21 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#22 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#23 {main}
+2025-06-29T12:02:25+00:00 ERR (3):
+2025-06-29T12:02:25+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-06-29T12:16:51+00:00 ERR (3):
+2025-06-29T12:16:51+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-06-29T12:28:39+00:00 ERR (3): A media to create is not attached to an item (url: https://127.0.1.1:8443/exist/rest/db/tei/item_77.xml).
+2025-06-29T12:29:24+00:00 ERR (3): A media to create is not attached to an item (url: http://127.0.1.1:8080/exist/rest/db/tei/item_77.xml).
+2025-06-29T12:31:52+00:00 ERR (3): A media to create is not attached to an item (url: http://127.0.1.1:8080/exist/rest/db/tei/item_77.xml).
+2025-06-29T12:35:23+00:00 ERR (3):
+2025-06-29T12:35:23+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-06-29T12:43:33+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: A plugin by the name "xmlViewer" was not found in the plugin manager Laminas\View\HelperPluginManager in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/AbstractPluginManager.php:161
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(386): Laminas\ServiceManager\AbstractPluginManager->get()
+#1 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(404): Laminas\View\Renderer\PhpRenderer->plugin()
+#2 /var/www/omeka/themes/freedom/view/omeka/site/item/show.phtml(105): Laminas\View\Renderer\PhpRenderer->__call()
+#3 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#4 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(194): Laminas\View\Renderer\PhpRenderer->render()
+#5 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#6 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/View/Http/DefaultRenderingStrategy.php(98): Laminas\View\View->render()
+#8 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\View\Http\DefaultRenderingStrategy->render()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#10 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(360): Laminas\EventManager\EventManager->triggerEvent()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(341): Laminas\Mvc\Application->completeRequest()
+#12 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#13 {main}
+2025-06-29T12:51:44+00:00 ERR (3): Error: Object of class Omeka\View\Helper\Media could not be converted to string in /var/www/omeka/themes/freedom/view/omeka/site/item/show.phtml:28
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include()
+#1 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(194): Laminas\View\Renderer\PhpRenderer->render()
+#2 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#3 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/View/Http/DefaultRenderingStrategy.php(98): Laminas\View\View->render()
+#5 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\View\Http\DefaultRenderingStrategy->render()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(360): Laminas\EventManager\EventManager->triggerEvent()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(341): Laminas\Mvc\Application->completeRequest()
+#9 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#10 {main}
+2025-06-29T12:53:09+00:00 ERR (3): Error: Object of class Omeka\View\Helper\Media could not be converted to string in /var/www/omeka/themes/freedom/view/omeka/site/item/show.phtml:28
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include()
+#1 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(194): Laminas\View\Renderer\PhpRenderer->render()
+#2 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#3 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/View/Http/DefaultRenderingStrategy.php(98): Laminas\View\View->render()
+#5 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\View\Http\DefaultRenderingStrategy->render()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(360): Laminas\EventManager\EventManager->triggerEvent()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(341): Laminas\Mvc\Application->completeRequest()
+#9 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#10 {main}
+2025-06-29T13:04:45+00:00 ERR (3): Error: Object of class Omeka\View\Helper\Media could not be converted to string in /var/www/omeka/themes/freedom/view/omeka/site/item/show.phtml:28
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include()
+#1 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(194): Laminas\View\Renderer\PhpRenderer->render()
+#2 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#3 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/View/Http/DefaultRenderingStrategy.php(98): Laminas\View\View->render()
+#5 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\View\Http\DefaultRenderingStrategy->render()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(360): Laminas\EventManager\EventManager->triggerEvent()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(341): Laminas\Mvc\Application->completeRequest()
+#9 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#10 {main}
+2025-06-29T13:39:50+00:00 ERR (3):
+2025-06-29T13:39:50+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-06-29T14:15:04+00:00 ERR (3):
+2025-06-29T14:15:04+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-06-30T18:08:26+00:00 ERR (3):
+2025-06-30T18:08:26+00:00 ERR (3): Command "command -v 'lynx'" failed with status code 127.
+2025-06-30T18:14:45+00:00 ERR (3): TypeError: ExtractText\Module::extractTextItem(): Argument #1 ($item) must be of type Omeka\Entity\Item, null given, called in /var/www/omeka/modules/ExtractText/Module.php on line 392 and defined in /var/www/omeka/modules/ExtractText/Module.php:309
+Stack trace:
+#0 /var/www/omeka/modules/ExtractText/Module.php(392): ExtractText\Module->extractTextItem()
+#1 /var/www/omeka/modules/ExtractText/Module.php(180): ExtractText\Module->extractTextMedia()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): ExtractText\Module->ExtractText\{closure}()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#4 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(651): Laminas\EventManager\EventManager->triggerEvent()
+#5 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(354): Omeka\Api\Adapter\AbstractEntityAdapter->hydrateEntity()
+#6 /var/www/omeka/application/src/Api/Manager.php(224): Omeka\Api\Adapter\AbstractEntityAdapter->create()
+#7 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#8 /var/www/omeka/modules/PdfToTei/Module.php(432): Omeka\Api\Manager->create()
+#9 /var/www/omeka/modules/PdfToTei/Module.php(367): PdfToTei\Module->uploadTeiToOmeka()
+#10 /var/www/omeka/modules/PdfToTei/Module.php(282): PdfToTei\Module->logItemData()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): PdfToTei\Module->logItemCreate()
+#12 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#13 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#14 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#15 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#16 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(99): Omeka\Api\Manager->create()
+#17 /var/www/omeka/modules/Collecting/src/Controller/Site/IndexController.php(67): Omeka\Mvc\Controller\Plugin\Api->create()
+#18 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Collecting\Controller\Site\IndexController->submitAction()
+#19 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#20 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#21 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#22 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#23 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#24 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#25 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#26 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#27 {main}
+2025-06-30T18:42:53+00:00 ERR (3): TypeError: Laminas\EventManager\SharedEventManager::detach(): Argument #1 ($listener) must be of type callable, string given, called in /var/www/omeka/modules/TeiAttachment/Module.php on line 111 and defined in /var/www/omeka/vendor/laminas/laminas-eventmanager/src/SharedEventManager.php:84
+Stack trace:
+#0 /var/www/omeka/modules/TeiAttachment/Module.php(111): Laminas\EventManager\SharedEventManager->detach()
+#1 /var/www/omeka/modules/TeiAttachment/Module.php(72): TeiAttachment\Module->uploadXmlAsMedia()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): TeiAttachment\Module->attachTeiMedia()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#4 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#5 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#6 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#7 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(99): Omeka\Api\Manager->create()
+#8 /var/www/omeka/modules/Collecting/src/Controller/Site/IndexController.php(67): Omeka\Mvc\Controller\Plugin\Api->create()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Collecting\Controller\Site\IndexController->submitAction()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#12 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#14 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#16 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#17 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#18 {main}
+2025-06-30T18:51:44+00:00 ERR (3): TypeError: Laminas\EventManager\SharedEventManager::detach(): Argument #1 ($listener) must be of type callable, string given, called in /var/www/omeka/modules/TeiAttachment/Module.php on line 111 and defined in /var/www/omeka/vendor/laminas/laminas-eventmanager/src/SharedEventManager.php:84
+Stack trace:
+#0 /var/www/omeka/modules/TeiAttachment/Module.php(111): Laminas\EventManager\SharedEventManager->detach()
+#1 /var/www/omeka/modules/TeiAttachment/Module.php(72): TeiAttachment\Module->uploadXmlAsMedia()
+#2 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): TeiAttachment\Module->attachTeiMedia()
+#3 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#4 /var/www/omeka/application/src/Api/Manager.php(323): Laminas\EventManager\EventManager->triggerEvent()
+#5 /var/www/omeka/application/src/Api/Manager.php(269): Omeka\Api\Manager->finalize()
+#6 /var/www/omeka/application/src/Api/Manager.php(78): Omeka\Api\Manager->execute()
+#7 /var/www/omeka/application/src/Mvc/Controller/Plugin/Api.php(99): Omeka\Api\Manager->create()
+#8 /var/www/omeka/modules/Collecting/src/Controller/Site/IndexController.php(67): Omeka\Mvc\Controller\Plugin\Api->create()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Collecting\Controller\Site\IndexController->submitAction()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#12 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#13 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#14 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#15 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#16 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#17 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#18 {main}
+2025-07-02T17:51:42+00:00 ERR (3): Laminas\Mail\Transport\Exception\RuntimeException: Unable to send mail: Unknown error in /var/www/omeka/vendor/laminas/laminas-mail/src/Transport/Sendmail.php:298
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-mail/src/Transport/Sendmail.php(130): Laminas\Mail\Transport\Sendmail->mailHandler()
+#1 /var/www/omeka/application/src/Stdlib/Mailer.php(86): Laminas\Mail\Transport\Sendmail->send()
+#2 /var/www/omeka/application/src/Stdlib/Mailer.php(237): Omeka\Stdlib\Mailer->send()
+#3 /var/www/omeka/application/src/Controller/Admin/UserController.php(115): Omeka\Stdlib\Mailer->sendUserActivation()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\UserController->addAction()
+#5 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#9 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#11 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#12 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#13 {main}
+2025-07-04T14:49:24+00:00 ERR (3): Omeka\Module\Exception\ModuleCannotInstallException: The module Common should be upgraded to version 3.4.70 or later. in /var/www/omeka/modules/AdvancedSearch/data/scripts/upgrade.php:40
+Stack trace:
+#0 /var/www/omeka/modules/Common/TraitModule.php(377): require_once()
+#1 /var/www/omeka/modules/AdvancedSearch/Module.php(140): AdvancedSearch\Module->postUpgradeAuto()
+#2 /var/www/omeka/modules/Common/TraitModule.php(171): AdvancedSearch\Module->postUpgrade()
+#3 /var/www/omeka/application/src/Module/Manager.php(304): AdvancedSearch\Module->upgrade()
+#4 /var/www/omeka/application/src/Controller/Admin/ModuleController.php(250): Omeka\Module\Manager->upgrade()
+#5 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractActionController.php(71): Omeka\Controller\Admin\ModuleController->upgradeAction()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\Controller\AbstractActionController->onDispatch()
+#7 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Controller/AbstractController.php(97): Laminas\EventManager\EventManager->triggerEventUntil()
+#9 /var/www/omeka/vendor/laminas/laminas-mvc/src/DispatchListener.php(132): Laminas\Mvc\Controller\AbstractController->dispatch()
+#10 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\DispatchListener->onDispatch()
+#11 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#12 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(325): Laminas\EventManager\EventManager->triggerEventUntil()
+#13 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#14 {main}
+2025-07-04T14:52:01+00:00 ERR (3): Omeka\Api\Exception\NotFoundException: Omeka\Entity\Site entity with criteria {"slug":"guest"} not found in /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php:722
+Stack trace:
+#0 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(440): Omeka\Api\Adapter\AbstractEntityAdapter->findEntity()
+#1 /var/www/omeka/application/src/Api/Manager.php(230): Omeka\Api\Adapter\AbstractEntityAdapter->read()
+#2 /var/www/omeka/application/src/Api/Manager.php(115): Omeka\Api\Manager->execute()
+#3 /var/www/omeka/application/src/Mvc/MvcListeners.php(396): Omeka\Api\Manager->read()
+#4 /var/www/omeka/application/src/Mvc/MvcListeners.php(313): Omeka\Mvc\MvcListeners->prepareSite()
+#5 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Omeka\Mvc\MvcListeners->preparePublicSite()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(304): Laminas\EventManager\EventManager->triggerEventUntil()
+#8 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#9 {main}
+2025-07-04T15:12:09+00:00 ERR (3): Omeka\Api\Exception\NotFoundException: Omeka\Entity\Site entity with criteria {"slug":"my-site"} not found in /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php:722
+Stack trace:
+#0 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(440): Omeka\Api\Adapter\AbstractEntityAdapter->findEntity()
+#1 /var/www/omeka/application/src/Api/Manager.php(230): Omeka\Api\Adapter\AbstractEntityAdapter->read()
+#2 /var/www/omeka/application/src/Api/Manager.php(115): Omeka\Api\Manager->execute()
+#3 /var/www/omeka/application/src/Mvc/MvcListeners.php(396): Omeka\Api\Manager->read()
+#4 /var/www/omeka/application/src/Mvc/MvcListeners.php(313): Omeka\Mvc\MvcListeners->prepareSite()
+#5 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Omeka\Mvc\MvcListeners->preparePublicSite()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(179): Laminas\EventManager\EventManager->triggerListeners()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(304): Laminas\EventManager\EventManager->triggerEventUntil()
+#8 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#9 {main}
+2025-07-04T15:47:21+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: A plugin by the name "siteSettings" was not found in the plugin manager Laminas\View\HelperPluginManager in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/AbstractPluginManager.php:161
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(386): Laminas\ServiceManager\AbstractPluginManager->get()
+#1 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(404): Laminas\View\Renderer\PhpRenderer->plugin()
+#2 /var/www/omeka/themes/freedom/view/common/block-layout/collecting-block-one.phtml(9): Laminas\View\Renderer\PhpRenderer->__call()
+#3 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#4 /var/www/omeka/vendor/laminas/laminas-view/src/Helper/Partial.php(63): Laminas\View\Renderer\PhpRenderer->render()
+#5 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(407): Laminas\View\Helper\Partial->__invoke()
+#6 /var/www/omeka/modules/Collecting/src/Site/BlockLayout/Collecting.php(63): Laminas\View\Renderer\PhpRenderer->__call()
+#7 /var/www/omeka/application/src/View/Helper/BlockLayout.php(158): Collecting\Site\BlockLayout\Collecting->render()
+#8 /var/www/omeka/application/src/View/Helper/PageLayout.php(85): Omeka\View\Helper\BlockLayout->render()
+#9 /var/www/omeka/application/view/omeka/site/page/content.phtml(1): Omeka\View\Helper\PageLayout->render()
+#10 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#11 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(194): Laminas\View\Renderer\PhpRenderer->render()
+#12 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#13 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#14 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#15 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#16 /var/www/omeka/vendor/laminas/laminas-mvc/src/View/Http/DefaultRenderingStrategy.php(98): Laminas\View\View->render()
+#17 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\View\Http\DefaultRenderingStrategy->render()
+#18 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#19 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(360): Laminas\EventManager\EventManager->triggerEvent()
+#20 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(341): Laminas\Mvc\Application->completeRequest()
+#21 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#22 {main}
+2025-07-04T15:53:47+00:00 ERR (3): Laminas\ServiceManager\Exception\ServiceNotFoundException: A plugin by the name "siteSettings" was not found in the plugin manager Laminas\View\HelperPluginManager in /var/www/omeka/vendor/laminas/laminas-servicemanager/src/AbstractPluginManager.php:161
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(386): Laminas\ServiceManager\AbstractPluginManager->get()
+#1 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(404): Laminas\View\Renderer\PhpRenderer->plugin()
+#2 /var/www/omeka/themes/freedom/view/common/block-layout/collecting-block-one.phtml(11): Laminas\View\Renderer\PhpRenderer->__call()
+#3 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#4 /var/www/omeka/vendor/laminas/laminas-view/src/Helper/Partial.php(63): Laminas\View\Renderer\PhpRenderer->render()
+#5 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(407): Laminas\View\Helper\Partial->__invoke()
+#6 /var/www/omeka/modules/Collecting/src/Site/BlockLayout/Collecting.php(63): Laminas\View\Renderer\PhpRenderer->__call()
+#7 /var/www/omeka/application/src/View/Helper/BlockLayout.php(158): Collecting\Site\BlockLayout\Collecting->render()
+#8 /var/www/omeka/application/src/View/Helper/PageLayout.php(85): Omeka\View\Helper\BlockLayout->render()
+#9 /var/www/omeka/application/view/omeka/site/page/content.phtml(1): Omeka\View\Helper\PageLayout->render()
+#10 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#11 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(194): Laminas\View\Renderer\PhpRenderer->render()
+#12 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#13 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#14 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#15 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#16 /var/www/omeka/vendor/laminas/laminas-mvc/src/View/Http/DefaultRenderingStrategy.php(98): Laminas\View\View->render()
+#17 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\View\Http\DefaultRenderingStrategy->render()
+#18 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#19 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(360): Laminas\EventManager\EventManager->triggerEvent()
+#20 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(341): Laminas\Mvc\Application->completeRequest()
+#21 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#22 {main}
+2025-07-04T15:54:32+00:00 ERR (3): Laminas\Router\Exception\RuntimeException: Route with name "guest" not found in /var/www/omeka/vendor/laminas/laminas-router/src/Http/TreeRouteStack.php:364
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-view/src/Helper/Url.php(107): Laminas\Router\Http\TreeRouteStack->assemble()
+#1 /var/www/omeka/application/src/View/Helper/Url.php(34): Laminas\View\Helper\Url->__invoke()
+#2 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(407): Omeka\View\Helper\Url->__invoke()
+#3 /var/www/omeka/themes/freedom/view/common/block-layout/collecting-block-one.phtml(11): Laminas\View\Renderer\PhpRenderer->__call()
+#4 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#5 /var/www/omeka/vendor/laminas/laminas-view/src/Helper/Partial.php(63): Laminas\View\Renderer\PhpRenderer->render()
+#6 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(407): Laminas\View\Helper\Partial->__invoke()
+#7 /var/www/omeka/modules/Collecting/src/Site/BlockLayout/Collecting.php(63): Laminas\View\Renderer\PhpRenderer->__call()
+#8 /var/www/omeka/application/src/View/Helper/BlockLayout.php(158): Collecting\Site\BlockLayout\Collecting->render()
+#9 /var/www/omeka/application/src/View/Helper/PageLayout.php(85): Omeka\View\Helper\BlockLayout->render()
+#10 /var/www/omeka/application/view/omeka/site/page/content.phtml(1): Omeka\View\Helper\PageLayout->render()
+#11 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#12 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(194): Laminas\View\Renderer\PhpRenderer->render()
+#13 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#14 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#15 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#16 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/View/Http/DefaultRenderingStrategy.php(98): Laminas\View\View->render()
+#18 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\View\Http\DefaultRenderingStrategy->render()
+#19 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#20 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(360): Laminas\EventManager\EventManager->triggerEvent()
+#21 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(341): Laminas\Mvc\Application->completeRequest()
+#22 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#23 {main}
+2025-07-04T15:58:33+00:00 ERR (3): Laminas\Router\Exception\RuntimeException: Route with name "guest" not found in /var/www/omeka/vendor/laminas/laminas-router/src/Http/TreeRouteStack.php:364
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-view/src/Helper/Url.php(107): Laminas\Router\Http\TreeRouteStack->assemble()
+#1 /var/www/omeka/application/src/View/Helper/Url.php(34): Laminas\View\Helper\Url->__invoke()
+#2 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(407): Omeka\View\Helper\Url->__invoke()
+#3 /var/www/omeka/themes/freedom/view/common/block-layout/collecting-block-one.phtml(19): Laminas\View\Renderer\PhpRenderer->__call()
+#4 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#5 /var/www/omeka/vendor/laminas/laminas-view/src/Helper/Partial.php(63): Laminas\View\Renderer\PhpRenderer->render()
+#6 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(407): Laminas\View\Helper\Partial->__invoke()
+#7 /var/www/omeka/modules/Collecting/src/Site/BlockLayout/Collecting.php(63): Laminas\View\Renderer\PhpRenderer->__call()
+#8 /var/www/omeka/application/src/View/Helper/BlockLayout.php(158): Collecting\Site\BlockLayout\Collecting->render()
+#9 /var/www/omeka/application/src/View/Helper/PageLayout.php(85): Omeka\View\Helper\BlockLayout->render()
+#10 /var/www/omeka/application/view/omeka/site/page/content.phtml(1): Omeka\View\Helper\PageLayout->render()
+#11 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#12 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(194): Laminas\View\Renderer\PhpRenderer->render()
+#13 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#14 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#15 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#16 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/View/Http/DefaultRenderingStrategy.php(98): Laminas\View\View->render()
+#18 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\View\Http\DefaultRenderingStrategy->render()
+#19 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#20 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(360): Laminas\EventManager\EventManager->triggerEvent()
+#21 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(341): Laminas\Mvc\Application->completeRequest()
+#22 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#23 {main}
+2025-07-04T16:00:59+00:00 ERR (3): Laminas\Router\Exception\RuntimeException: Route with name "guest" not found in /var/www/omeka/vendor/laminas/laminas-router/src/Http/TreeRouteStack.php:364
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-view/src/Helper/Url.php(107): Laminas\Router\Http\TreeRouteStack->assemble()
+#1 /var/www/omeka/application/src/View/Helper/Url.php(34): Laminas\View\Helper\Url->__invoke()
+#2 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(407): Omeka\View\Helper\Url->__invoke()
+#3 /var/www/omeka/themes/freedom/view/common/block-layout/collecting-block-one.phtml(18): Laminas\View\Renderer\PhpRenderer->__call()
+#4 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#5 /var/www/omeka/vendor/laminas/laminas-view/src/Helper/Partial.php(63): Laminas\View\Renderer\PhpRenderer->render()
+#6 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(407): Laminas\View\Helper\Partial->__invoke()
+#7 /var/www/omeka/modules/Collecting/src/Site/BlockLayout/Collecting.php(63): Laminas\View\Renderer\PhpRenderer->__call()
+#8 /var/www/omeka/application/src/View/Helper/BlockLayout.php(158): Collecting\Site\BlockLayout\Collecting->render()
+#9 /var/www/omeka/application/src/View/Helper/PageLayout.php(85): Omeka\View\Helper\BlockLayout->render()
+#10 /var/www/omeka/application/view/omeka/site/page/content.phtml(1): Omeka\View\Helper\PageLayout->render()
+#11 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#12 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(194): Laminas\View\Renderer\PhpRenderer->render()
+#13 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#14 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#15 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#16 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#17 /var/www/omeka/vendor/laminas/laminas-mvc/src/View/Http/DefaultRenderingStrategy.php(98): Laminas\View\View->render()
+#18 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\View\Http\DefaultRenderingStrategy->render()
+#19 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#20 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(360): Laminas\EventManager\EventManager->triggerEvent()
+#21 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(341): Laminas\Mvc\Application->completeRequest()
+#22 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#23 {main}
+2025-07-04T16:16:46+00:00 ERR (3): Omeka\Api\Exception\NotFoundException: Omeka\Entity\Asset entity with criteria {"id":""} not found in /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php:722
+Stack trace:
+#0 /var/www/omeka/application/src/Api/Adapter/AbstractEntityAdapter.php(440): Omeka\Api\Adapter\AbstractEntityAdapter->findEntity()
+#1 /var/www/omeka/application/src/Api/Manager.php(230): Omeka\Api\Adapter\AbstractEntityAdapter->read()
+#2 /var/www/omeka/application/src/Api/Manager.php(115): Omeka\Api\Manager->execute()
+#3 /var/www/omeka/application/src/View/Helper/Api.php(69): Omeka\Api\Manager->read()
+#4 /var/www/omeka/modules/PageBlocks/view/common/block-layout/image-banner.phtml(6): Omeka\View\Helper\Api->read()
+#5 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#6 /var/www/omeka/vendor/laminas/laminas-view/src/Helper/Partial.php(63): Laminas\View\Renderer\PhpRenderer->render()
+#7 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(407): Laminas\View\Helper\Partial->__invoke()
+#8 /var/www/omeka/modules/PageBlocks/src/Site/BlockLayout/ImageBanner.php(53): Laminas\View\Renderer\PhpRenderer->__call()
+#9 /var/www/omeka/application/src/View/Helper/BlockLayout.php(158): PageBlocks\Site\BlockLayout\ImageBanner->render()
+#10 /var/www/omeka/application/src/View/Helper/PageLayout.php(85): Omeka\View\Helper\BlockLayout->render()
+#11 /var/www/omeka/application/view/omeka/site/page/content.phtml(1): Omeka\View\Helper\PageLayout->render()
+#12 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include('...')
+#13 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(194): Laminas\View\Renderer\PhpRenderer->render()
+#14 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#15 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#16 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#17 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#18 /var/www/omeka/vendor/laminas/laminas-mvc/src/View/Http/DefaultRenderingStrategy.php(98): Laminas\View\View->render()
+#19 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\View\Http\DefaultRenderingStrategy->render()
+#20 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#21 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(360): Laminas\EventManager\EventManager->triggerEvent()
+#22 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(341): Laminas\Mvc\Application->completeRequest()
+#23 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#24 {main}
+2025-07-13T11:25:09+00:00 ERR (3): Error: Call to a member function first() on array in /var/www/omeka/themes/freedom/view/omeka/site/item/show.phtml:94
+Stack trace:
+#0 /var/www/omeka/vendor/laminas/laminas-view/src/Renderer/PhpRenderer.php(519): include()
+#1 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(194): Laminas\View\Renderer\PhpRenderer->render()
+#2 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(222): Laminas\View\View->render()
+#3 /var/www/omeka/vendor/laminas/laminas-view/src/View.php(187): Laminas\View\View->renderChildren()
+#4 /var/www/omeka/vendor/laminas/laminas-mvc/src/View/Http/DefaultRenderingStrategy.php(98): Laminas\View\View->render()
+#5 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(319): Laminas\Mvc\View\Http\DefaultRenderingStrategy->render()
+#6 /var/www/omeka/vendor/laminas/laminas-eventmanager/src/EventManager.php(171): Laminas\EventManager\EventManager->triggerListeners()
+#7 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(360): Laminas\EventManager\EventManager->triggerEvent()
+#8 /var/www/omeka/vendor/laminas/laminas-mvc/src/Application.php(341): Laminas\Mvc\Application->completeRequest()
+#9 /var/www/omeka/index.php(21): Laminas\Mvc\Application->run()
+#10 {main}

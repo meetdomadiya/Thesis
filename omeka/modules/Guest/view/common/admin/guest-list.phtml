@@ -1,0 +1,26 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Entity\User $user
+ * @var \Omeka\Settings\UserSettings $userSettings
+ * @var \Omeka\Api\Representation\SiteRepresentation|null $guestSite
+ */
+
+$translate = $this->plugin('translate');
+?>
+
+<dl>
+    <div class="property guest-profile">
+        <dt><?= $translate('Guest account') ?></dt>
+        <dd class="value guest-account">
+            <ul class="guest-account">
+                <li>
+                    <?= sprintf($translate('Site: %s'), $guestSite ? $guestSite->link($guestSite->title()) : $translate('none')) ?>
+                </li>
+                <li>
+                    <?= sprintf($translate('Agreed terms: %s'), $userSettings->get('guest_agreed_terms') ? $translate('Yes') : $translate('No')) ?>
+                </li>
+            </ul>
+        </dd>
+    </div>
+</dl>

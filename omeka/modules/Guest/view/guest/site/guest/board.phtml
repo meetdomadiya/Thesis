@@ -1,0 +1,39 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SiteRepresentation $site
+ * @var \Omeka\Entity\User $user
+ * @var array $widgets
+ *
+ * @var \Laminas\View\Helper\Navigation $guestNavigation
+ */
+
+$plugins = $this->getHelperPluginManager();
+$url = $plugins->get('url');
+$translate = $plugins->get('translate');
+$pageTitle = $plugins->get('pageTitle');
+$breadcrumbs = $plugins->has('breadcrumbs') ? $plugins->get('breadcrumbs') : null;
+$guestNavigation = $plugins->get('guestNavigation')();
+
+$hasGuestNav = (bool) $guestNavigation->getContainer()->count();
+
+$this->htmlElement('body')->appendAttribute('class', 'guest account');
+?>
+
+<?php if ($breadcrumbs && !$hasGuestNav): ?>
+<?= $breadcrumbs() ?>
+<?php endif; ?>
+
+<?php if ($hasGuestNav): ?>
+<nav class="navigation-guest">
+    <?= $guestNavigation->menu()->renderMenu() ?>
+</nav>
+<?php endif; ?>
+
+<?= $this->messages() ?>
+
+<?= $pageTitle($this->siteSetting('guest_dashboard_label') ?: $this->setting('guest_dashboard_label')) ?>
+
+<h3><?= $user->getName() ?></h3>
+
+<a class="button" href="<?= $url('site/guest/guest', ['action' => 'logout'], true) ?>"><?= $translate('Log out') ?></a>

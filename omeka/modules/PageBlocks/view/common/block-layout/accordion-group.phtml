@@ -1,0 +1,33 @@
+<?php
+
+$assetUrl = $this->plugin('assetUrl');
+$this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
+$this->headScript()->appendFile($assetUrl('js/accordion-group-front.js', 'PageBlocks'));
+
+?>
+
+<section class="accordion-group">
+    <?php if ($header): ?>
+        <h2><?= $header ?></h2>
+    <?php endif; ?>
+    <?php foreach ($accordions as $index => $accordion): ?>
+        <div class="accordion-panel">
+            <h3>
+                <button
+                    class="accordion-trigger"
+                    id="accordion-trigger-<?= $index + 1 ?>"
+                    aria-expanded="false"
+                    aria-controls="accordion-content-<?= $index + 1 ?>">
+                        <?= $accordion['title'] ?>
+                        <span class="fa fa-chevron-down" aria-hidden="true"></span>
+                </button>
+            </h3>
+            <div
+                class="accordion-content collapsed"
+                id="accordion-content-<?= $index + 1 ?>"
+                aria-labelledby="accordion-trigger-<?= $index + 1 ?>">
+                    <div><?= $accordion['html'] ?></div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</section>

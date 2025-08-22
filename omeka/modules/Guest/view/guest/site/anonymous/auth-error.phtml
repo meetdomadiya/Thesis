@@ -1,0 +1,45 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SiteRepresentation $site
+ */
+
+$plugins = $this->getHelperPluginManager();
+$escape = $plugins->get('escapeHtml');
+$translate = $plugins->get('translate');
+$pageTitle = $plugins->get('pageTitle');
+$hyperlink = $plugins->get('hyperlink');
+$htmlElement = $plugins->get('htmlElement');
+
+$breadcrumbs = $plugins->has('breadcrumbs') ? $plugins->get('breadcrumbs') : null;
+
+$htmlElement('body')->appendAttribute('class', 'guest guest-login login');
+?>
+
+<?php if ($breadcrumbs): ?>
+    <?= $breadcrumbs() ?>
+<?php else: ?>
+<div class="breadcrumbs-parent">
+    <nav id="breadcrumb" class="breadcrumbs" aria-label="<?= $translate('Breadcrumb') ?>">
+        <ol>
+            <li><?= $hyperlink($translate('Home'), $site->siteUrl()) ?></li>
+            <li><span aria-current="page"><?= $escape('Authentication error') ?></span></li>
+        </ol>
+    </nav>
+</div>
+<?php endif; ?>
+
+<?= $pageTitle($translate('Authentication error')) ?>
+
+<div class="block block-anonymous guest-anonymous guest-auth-error">
+
+    <?= $this->messages() ?>
+
+    <p>
+        <?= $translate('An error occurred during the authentication via a third party authenticator.') ?>
+    </p>
+    <p>
+        <?= $translate('Contact your administrator for more information.') ?>
+    </p>
+
+</div>

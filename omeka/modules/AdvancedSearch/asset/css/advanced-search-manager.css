@@ -1,0 +1,65 @@
+@media all {
+    .search-admin .subhead::before {
+        content:"";
+    }
+
+    .search-admin .actions .disabled {
+        color: currentColor;
+        cursor: not-allowed;
+        opacity: 0.5;
+        text-decoration: none;
+    }
+    .search-admin .actions span::before {
+        text-align: right;
+    }
+    .search-admin .actions span,
+    .actions span::before {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        vertical-align: top;
+        border: 0;
+        box-shadow: none;
+    }
+    .search-admin #sidebar-confirm .inputs label {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        font-weight: normal;
+    }
+    .search-admin #sidebar-confirm .inputs label::after {
+        content: initial;
+    }
+
+    .ui-sortable {
+        background-color: #eeeeee;
+        padding: 5px;
+    }
+    .ui-sortable-handle {
+        margin: 5px 0;
+        padding: 5px;
+        border: 1px solid black;
+        background-color: white;
+        cursor: grab;
+        display: flex;
+        align-items: center;
+    }
+    .ui-sortable-handle::before {
+        display: inline-block;
+        font-family: 'Font Awesome 5 Free';
+        content: "\f0b2";
+        width: 1.5em;
+    }
+    .ui-sortable-handle > span {
+        flex-grow: 1;
+    }
+    .ui-dialog .ui-dialog-titlebar-close {
+        min-height: inherit;
+    }
+    .field-description.no-link + a {
+        display: none;
+    }
+
+    .setting-info {
+        font-size: smaller;
+    }
+}

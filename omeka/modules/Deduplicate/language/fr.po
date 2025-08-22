@@ -1,0 +1,369 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+#
+# da <Daniel.fr@Berthereau.net>, 2022.
+# Daniel Berthereau <Daniel.fr@Berthereau.net>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: unnamed project\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-17 00:00+0000\n"
+"PO-Revision-Date: 2025-03-17 00:00+0000\n"
+"Last-Translator: Daniel Berthereau <Daniel.fr@Berthereau.net>\n"
+"Language-Team: French <kde-i18n-doc@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: data/scripts/upgrade.php:38 Module.php:70
+#, php-format
+msgid "The module %1$s should be upgraded to version %2$s or later."
+msgstr "Le module %1$s doit être mis à niveau à la version %2$s ou supérieure."
+
+#: view/deduplicate/index/auto.phtml:32
+msgid "Automatic"
+msgstr "Automatique"
+
+#: view/deduplicate/index/auto.phtml:32 view/deduplicate/index/manual.phtml:35
+msgid "Deduplicate"
+msgstr "Dédoublonnage"
+
+#: view/deduplicate/index/auto.phtml:49
+#, php-format
+msgid "The process is done on a selection of %1$sresources%2$s."
+msgstr "Le traitement est réalisé sur une sélection de %1$sressources%2$s."
+
+#: view/deduplicate/index/auto.phtml:54
+msgid ""
+"Select a property: all resources with the same value, case insensitively or "
+"not, will be removed, except the first."
+msgstr ""
+"Choisissez une propriété : toutes les ressources avec la même valeur, avec "
+"ou sans casse, seront supprimées, sauf la première."
+
+#: view/deduplicate/index/auto.phtml:58
+msgid "WARNING:"
+msgstr "ATTENTION :"
+
+#: view/deduplicate/index/auto.phtml:59
+msgid ""
+"It is strongly recommended to backup the database and files before "
+"processing."
+msgstr ""
+"Il est fortement recommandé de sauvegarder la base de données et les "
+"fichiers avant de dédoublonner."
+
+#: view/deduplicate/index/auto.phtml:60
+msgid "It is recommended to process on a selected list of resources too."
+msgstr "Il est recommandé de dédoublonner sur une sélection de ressources."
+
+#: view/deduplicate/index/auto.phtml:71
+#, php-format
+msgid ""
+"The search returned %1$d values with duplicated resources for property %2$s."
+msgstr ""
+"La recherche a retourné %1$d valeurs avec des doublons pour la propriété "
+"%2$s."
+
+#: view/deduplicate/index/auto.phtml:80
+msgid "[kept]"
+msgstr "[conservé]"
+
+#: view/deduplicate/index/auto.phtml:85
+msgid "[skipped]"
+msgstr "[ignoré]"
+
+#: view/deduplicate/index/manual.phtml:56
+#, php-format
+msgid ""
+"To refine the list, select a property and a value or select %sresources%s "
+"directly."
+msgstr ""
+"Pour affiner la liste, choisir une propriété et une valeur ou sélectionner "
+"les %sressources%s directement."
+
+#: view/deduplicate/index/manual.phtml:62
+#, php-format
+msgid ""
+"To get a list of resources to merge, select a property and a value or go to "
+"%sresources%s to filter them."
+msgstr ""
+"Pour obtenir une liste de ressources à fusionner, choisir une propriété et "
+"une valeur ou parcourir les %sressources%s pour les filtrer."
+
+#: view/deduplicate/index/manual.phtml:72
+msgid "The query returned a single result."
+msgstr "La requête a retourné un seul résultat."
+
+#: view/deduplicate/index/manual.phtml:76
+#, php-format
+msgid ""
+"The search returned %1$d resources. Only %2$d first ones are displayed. "
+"Other ones won’t be processed."
+msgstr ""
+"La recherche a retourné %1$d ressources. Seuls les %2$d premiers sont "
+"affichés. Les autres ne seront pas traités."
+
+#: view/deduplicate/index/manual.phtml:89
+msgid "Select the resource to keep and the ones to merge."
+msgstr "Choisir la ressource à conserver et celles à fusionner."
+
+#: view/deduplicate/index/manual.phtml:91
+msgid ""
+"Merge mode: remove all duplicate resources and update all linked resources "
+"to the one kept."
+msgstr ""
+"Mode de fusion : supprimer les ressources en doublon et mettre à jour les "
+"ressources liées vers la ressource conservée."
+
+#: view/deduplicate/index/manual.phtml:101
+msgid "Select resource to keep"
+msgstr "Choisir la ressource à conserver"
+
+#: view/deduplicate/index/manual.phtml:101
+msgid "Keep"
+msgstr "Conserver"
+
+#: view/deduplicate/index/manual.phtml:102
+msgid "Select resource to merge"
+msgstr "Choisir la ressource à fusionner"
+
+#: view/deduplicate/index/manual.phtml:102
+msgid "Merge"
+msgstr "Fusionner"
+
+#: data/scripts/upgrade.php:46
+msgid "It is now possible to delete duplicates automatically."
+msgstr "Il est désormais possible de supprimer les doublons automatiquement."
+
+#: src/Job/DeduplicateResources.php:35 src/Job/DeduplicateResources.php:59
+msgid "There is no resource to merge."
+msgstr "Aucune ressource à fusionner."
+
+#: src/Job/DeduplicateResources.php:45
+msgid "There is no resource #{resource_id} to merge."
+msgstr "Il n’y a aucune ressource #{resource_id} à fusionner."
+
+#: src/Job/DeduplicateResources.php:102
+msgid "{count} resources have been merged inside resource #{resource_id}."
+msgstr ""
+"{count} ressources ont été fusionnées dans la ressource #{resource_id}."
+
+#: src/Form/DeduplicateAutoForm.php:19 src/Form/DeduplicateForm.php:19
+msgid "Property to deduplicate on"
+msgstr "Propriété à dédoublonner"
+
+#: src/Form/DeduplicateAutoForm.php:28 src/Form/DeduplicateForm.php:28
+msgid "Select a property…"
+msgstr "Choisir une propriété…"
+
+#: src/Form/DeduplicateAutoForm.php:35 src/Form/DeduplicateForm.php:45
+msgid "Heuristic to find similar values"
+msgstr "Heuristique pour identifier les valeurs similaires"
+
+#: src/Form/DeduplicateAutoForm.php:37
+msgid "Equal (exactly)"
+msgstr "Égal (exactement)"
+
+#: src/Form/DeduplicateAutoForm.php:38
+msgid "Equal (case insensitive)"
+msgstr "Égal (sans casse)"
+
+#: src/Form/DeduplicateAutoForm.php:51
+msgid "Process"
+msgstr "Traitement"
+
+#: src/Form/DeduplicateForm.php:46
+msgid "Different algorithms can be used to detect \"similar\" values."
+msgstr ""
+"Différents algorithmes peuvent être utilisés pour détecter les valeurs "
+"« similaires »."
+
+#: src/Form/DeduplicateForm.php:49
+msgid "Equal"
+msgstr "Égal"
+
+#: src/Form/DeduplicateForm.php:50
+msgid "Similar text"
+msgstr "Texte similaire"
+
+#: src/Form/DeduplicateForm.php:51
+msgid "Levenshtein distance"
+msgstr "Distance de Levenshtein"
+
+#: src/Form/DeduplicateForm.php:52
+msgid "Metaphone"
+msgstr "Metaphone"
+
+#: src/Form/DeduplicateForm.php:53
+msgid "Soundex"
+msgstr "Soundex"
+
+#: src/Controller/IndexController.php:103
+msgid "A property to deduplicate on is required."
+msgstr "Une propriété sur laquelle dédoublonner est nécessaire."
+
+#: src/Controller/IndexController.php:136
+msgid "There are no duplicates for the property {property}."
+msgstr "Il n’y a aucun doublon pour la propriété {property}."
+
+#: src/Controller/IndexController.php:144
+msgid "There are {count} duplicates for the property {property}."
+msgstr "Il y a {count} doublons pour la propriété {property}."
+
+#: src/Controller/IndexController.php:167
+msgid ""
+"{count} resources are duplicated with several values and are kept: "
+"{resource_ids}"
+msgstr ""
+"{count} ressources sont des doublons avec plusieurs valeurs et sont "
+"conservés : {resource_ids}"
+
+#: src/Controller/IndexController.php:186
+msgid ""
+"Confirm removing duplicates, except the first, by checking the checkbox."
+msgstr ""
+"Confirmer la suppression des doublons, sauf les premiers, en cochant la case "
+"à cocher."
+
+#: src/Controller/IndexController.php:193
+msgid "You cannot change property when submitting form."
+msgstr "Vous ne pouvez pas changer la propriété lors de la soumission."
+
+#: src/Controller/IndexController.php:215
+msgid ""
+"No duplicates were removed, because duplicated resources have multiple "
+"duplicate values."
+msgstr ""
+"Aucun doublon ne sera supprimé, car les doublons ont plusieurs valeurs "
+"dupliquées."
+
+#: src/Controller/IndexController.php:222
+msgid "An error occurred when deleting duplicates: {msg}."
+msgstr "Un erreur est survenue lors de la suppression des doublons : {msg}."
+
+#: src/Controller/IndexController.php:238
+#: src/Controller/IndexController.php:474
+msgid ""
+"Processing deduplication in background (job {link}#{job_id}{link_end}, "
+"{link_log}logs{link_end})."
+msgstr ""
+"Dédoublonnage lancé en arrière-plan (tâche {link}#{job_id}{link_end}, "
+"{link_log}journaux{link_end})."
+
+#: src/Controller/IndexController.php:259
+msgid "{count} duplicates were removed."
+msgstr "{count} doublons ont été supprimés."
+
+#: src/Controller/IndexController.php:297
+msgid "The property {property} does not exist."
+msgstr "La propriété {property} n’existe pas."
+
+#: src/Controller/IndexController.php:308
+msgid "A value to deduplicate on is required."
+msgstr "Une valeur sur laquelle dédoublonner est nécessaire."
+
+#: src/Controller/IndexController.php:313
+msgid "A property is required to search on."
+msgstr "Une propriété sur laquelle chercher est nécessaire."
+
+#: src/Controller/IndexController.php:320
+msgid "The string is too long (more than {length} characters)."
+msgstr "La chaîne est trop longue (plus de {length} caractères)."
+
+#: src/Controller/IndexController.php:352
+msgid "The query does not find selected resource ids."
+msgstr "La requête n’a pas trouvé les ressources sélectionnées."
+
+#: src/Controller/IndexController.php:367
+msgid "The query returned no resource."
+msgstr "La requête n’a retourné aucune ressource."
+
+#: src/Controller/IndexController.php:383
+msgid ""
+"There are too many similar values near \"{value}\". You may filter resources "
+"first."
+msgstr ""
+"Il y a trop de valeurs proches de « {value} ». Vous pouvez filtrer vos "
+"ressources d’abord."
+
+#: src/Controller/IndexController.php:389
+msgid "There is no existing value for property {property} near \"{value}\"."
+msgstr ""
+"Il n’y a aucune valeur pour la propriété {property} qui soit proche de "
+"« {value} »."
+
+#: src/Controller/IndexController.php:423
+msgid "The resource #{resource_id} does not exist."
+msgstr "La ressource #{resource_id} n’existe pas."
+
+#: src/Controller/IndexController.php:437
+msgid "Some merged resources do not exist."
+msgstr "Certaines ressources fusionnées n’existent pas."
+
+#: src/Controller/IndexController.php:602
+msgid ""
+"The value {value} has too much duplicates and will requires a second "
+"deduplication."
+msgstr ""
+"La valeur {value} a trop de doublons et nécessitera un second dédoublonnage."
+
+#: config/module.config.php:91
+msgid "Deduplicate all resources"
+msgstr "Dédoublonner toutes les ressources"
+
+#: config/module.config.php:92
+msgid "Deduplicate all resources automatically"
+msgstr "Dédoublonner toutes les ressources automatiquement"
+
+#: config/module.config.php:93
+msgid "Deduplicate selected resources"
+msgstr "Dédoublonner les ressources"
+
+#: config/module.config.php:94
+msgid "Deduplicate selected resources automatically"
+msgstr "Dédoublonner les ressources automatiquement"
+
+#, php-format
+#~ msgid "This module requires the module \"%s\"."
+#~ msgstr "Ce module requiert le module « %s »."
+
+#, php-format
+#~ msgid "This module requires modules \"%s\"."
+#~ msgstr "Ce module requiert les modules \"%s\"."
+
+#~ msgid "This module has resources that cannot be installed."
+#~ msgstr "Ce module a des ressources qui ne peuvent pas être installées."
+
+#~ msgid ""
+#~ "This module cannot install its tables, because they exist already. Try to "
+#~ "remove them first."
+#~ msgstr ""
+#~ "Ce module ne peut pas installer ses tables car elles existent déjà. "
+#~ "Essayez de les supprimer manuellement."
+
+#, php-format
+#~ msgid "The module removed tables \"%s\" from a previous broken install."
+#~ msgstr ""
+#~ "Le module a supprimé les tables « %s » depuis une installation échouée."
+
+#, php-format
+#~ msgid ""
+#~ "The module \"%s\" was automatically deactivated because the dependencies "
+#~ "are unavailable."
+#~ msgstr ""
+#~ "Le module « %s » a été automatiquement désactivé car ses dépendances ne "
+#~ "sont plus disponibles."
+
+#~ msgid "Value"
+#~ msgstr "Valeur"
+
+#~ msgid "property"
+#~ msgstr "propriété"
+
+#~ msgid "resource_id"
+#~ msgstr "resource_id"

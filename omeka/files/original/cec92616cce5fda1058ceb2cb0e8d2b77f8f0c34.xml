@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="item_135">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Example 3</title>
+        <editor>kh</editor>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>jhi</publisher>
+        <pubPlace>ugu</pubPlace>
+        <date>vu</date>
+        <availability>
+          <p>Generated from Omeka S Item</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Digital item from Omeka S with ID: 135</p>
+        <p>Number of pages: vbu</p>
+      </sourceDesc>
+    </fileDesc>
+    <profileDesc>
+      <textClass>
+        <keywords>
+          <term>tf</term>
+        </keywords>
+        <classCode>gfutyf</classCode>
+      </textClass>
+    </profileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>TEI document generated from Omeka S metadata by PdfToTei module</p>
+      </projectDesc>
+    </encodingDesc>
+    <revisionDesc>
+      <change when="2025-08-10">Generated from Omeka S item</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <front>
+        <div type="metadata">
+          <head>Item Metadata</head>
+          <p><label>TextType:</label> hgv</p>
+          <p><label>Audience:</label> f</p>
+          <p><label>LearningObjective:</label> bku</p>
+          <p><label>TitleTemplate:</label> jyf</p>
+        </div>
+      </front>
+      <div type="main">
+        <head>Example 3</head>
+        <p>BERUFSBILD DES DAMENSCHNEIDERS (DAMENSCHNEIDERIN) Für</p>
+        <p>Lehrzeit:</p>
+        <p>die praktische AusbildunginderBekleidungsindustrie</p>
+        <p>3 Jahre</p>
+        <p>Arbeitsgebiet: Zuschneiden, NähenundFertigstellenvonKleidem, Blusen, Kostiimenund Mänteln auch nach zeichnerischen Entwürfen. PflegenundInstandhaltenderArbeitsgeräte, MaschinenundEinrichtungen.</p>
+        <p>Fertigkeiten Notwendige:</p>
+        <p>und</p>
+        <p>Kenntnisse,</p>
+        <p>Kennenlemendungsunddieinder</p>
+        <p>Lehrzeitder Werk- und Hilfsstoffe, Verarbeitungsmöglichkeiten.</p>
+        <p>zu vermittelnihrersind:</p>
+        <p>Eigenschaften,</p>
+        <p>VerwenKennenlemenderGrundformderweiblichen Kleidung. KennenlemenderSchnittformenunddes Schnittauflegens. Vorrichten, Vorheften, Vorstecken. KennenlemenderGrößenmaße.</p>
+        <p>Messen. An- und AufzeichnenundAusschneiden einzelner Teile, Handnäheninden verschiedenen Sticharten. Maschinennähen. Knopflöcher, SchnürlöcherundRiegel. SchürzenvonHandundmaschinell. HerstellenundAnarbeitendesZubehörsunddes modischen Aufputzes. Vor- und Abbügeln. HandhabenvonSpezialmaschinen. AufteilendesStoffes. Einfaches Werkzeichnen. HerstellenvonBlusenundKleidem oder KostümenundMänteln, auchnach zeichnerischen Entwürfen. PflegenundInstandhaltenderArbeitsgeräte, MaschinenundEinrichtungen.</p>
+        <p>Erwünschte:</p>
+        <p>W.</p>
+        <p>BeiderAusbildungimNähenvonKleidem: Einfache ArbeitenanMäntelnundumgekehrt.</p>
+        <p>Bertelsmann</p>
+        <p>Verlag</p>
+        <p>KG</p>
+        <p>Bielefeld</p>
+        <p>Bestell-Nr.</p>
+        <p>12.50.011.81a</p>
+        <p>(anerkannt</p>
+        <p>1941)</p>
+      </div>
+    </body>
+  </text>
+</TEI>

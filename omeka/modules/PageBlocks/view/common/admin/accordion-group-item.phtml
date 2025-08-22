@@ -1,0 +1,18 @@
+<?php
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+?>
+
+<div class="attachment">
+    <span class="sortable-handle"></span>
+    <div class="asset-title"><?= $accordion['title'] ?? '' ?></div>
+
+    <ul class="actions">
+        <li><a class="accordion-form-edit o-icon-configure button" title="<?= $translate('Open asset options') ?>" aria-label="<?= $translate('Open asset options') ?>"></a></li>
+        <li class="delete"><a class="o-icon-delete button" title="<?= $translate('Delete attachment') ?>" href="#" aria-label="<?= $translate('Delete attachment') ?>"></a></li>
+        <li class="undo"><a class="o-icon-undo button" title="<?= $translate('Restore attachment') ?>" href="#" aria-label="<?= $translate('Restore attachment') ?>"></a></li>
+    </ul>
+    
+    <input type="hidden" data-sidebar-id="accordion-data-title" name="o:block[__blockIndex__][o:data][accordions][__attachmentIndex__][title]" value="<?= $accordion['title'] ?? '' ?>">
+    <input type="hidden" data-sidebar-id="accordion-data-html" name="o:block[__blockIndex__][o:data][accordions][__attachmentIndex__][html]" value="<?= $escape($accordion['html'] ?? '') ?>">
+</div>

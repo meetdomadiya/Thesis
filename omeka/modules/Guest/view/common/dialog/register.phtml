@@ -1,0 +1,49 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Form\UserForm $form
+ */
+
+$plugins = $this->getHelperPluginManager();
+$trigger = $plugins->get('trigger');
+$setting = $plugins->get('setting');
+$translate = $plugins->get('translate');
+$siteSetting = $plugins->get('siteSetting');
+
+try {
+    // Register form can be use on a site without public site.
+    $capabilities = $siteSetting('guest_capabilities') ?: $setting('guest_capabilities');
+} catch (Exception $e) {
+    $capabilities = $setting('guest_capabilities');
+}
+
+$form->prepare();
+$form->setAttribute('data-msg-error-password-matching', $translate('The two passwords do not match.'));
+?>
+
+<dialog id="register" class="popup popup-dialog dialog-register">
+    <div class="dialog-background">
+        <div class="dialog-panel">
+            <div class="dialog-header">
+                <button type="button" class="dialog-header-close-button" title="<?= $translate('Close') ?>" autofocus="autofocus">
+                    <span class="dialog-close">🗙</span>
+                </button>
+                <div class="dialog-messages">
+                </div>
+                <div>
+                    <?= $capabilities ?>
+                </div>
+            </div>
+            <div class="dialog-contents">
+                <?= $this->form()->openTag($form) ?>
+                    <?= $this->formCollection($form, false) ?>
+                    <?php $trigger('view.add.form.after'); ?>
+                    <button type="submit"><?= $translate('Submit') ?></button>
+                <?= $this->form()->closeTag() ?>
+            </div>
+            <div class="dialog-footer">
+                <?php $trigger('view.add.after'); ?>
+            </div>
+        </div>
+    </div>
+</dialog>

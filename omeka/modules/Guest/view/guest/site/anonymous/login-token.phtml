@@ -1,0 +1,51 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SiteRepresentation $site
+ * @var \TwoFactorAuth\Form\TokenForm $formToken
+ * @var null $formRegister
+ */
+
+$plugins = $this->getHelperPluginManager();
+$url = $plugins->get('url');
+$setting = $plugins->get('setting');
+$escape = $plugins->get('escapeHtml');
+$translate = $plugins->get('translate');
+$hyperlink = $plugins->get('hyperlink');
+$pageTitle = $plugins->get('pageTitle');
+$siteSetting = $plugins->get('siteSetting');
+$htmlElement = $plugins->get('htmlElement');
+
+$breadcrumbs = $plugins->has('breadcrumbs') ? $plugins->get('breadcrumbs') : null;
+
+$htmlElement('body')->appendAttribute('class', 'guest guest-login login-token');
+
+$pageLabel = $siteSetting('guest_login_text') ?: ($setting('guest_login_text') ?: $translate('Log in'));
+?>
+
+<?php if ($breadcrumbs): ?>
+    <?= $breadcrumbs() ?>
+<?php else: ?>
+<div class="breadcrumbs-parent">
+    <nav id="breadcrumb" class="breadcrumbs" aria-label="<?= $translate('Breadcrumb') ?>">
+        <ol>
+            <li><?= $hyperlink($translate('Home'), $site->siteUrl()) ?></li>
+            <li><span aria-current="page"><?= $escape($pageLabel) ?></span></li>
+        </ol>
+    </nav>
+</div>
+<?php endif; ?>
+
+<?= $pageTitle($pageLabel) ?>
+
+<div class="block block-anonymous guest-anonymous guest-login guest-login-token two-factor-auth-login">
+
+    <?= $this->messages() ?>
+
+    <?= $this->form($formToken) ?>
+
+    <p class="resend-token">
+        <?= $hyperlink($translate('Resend a code'), $url('site/guest/anonymous', ['action' => 'login'], ['query' => ['resend_token' => 1]], true), ['class' => 'resend-code']) ?>
+    </p>
+
+</div>

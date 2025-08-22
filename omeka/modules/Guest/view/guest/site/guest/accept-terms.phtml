@@ -1,0 +1,46 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SiteRepresentation $site
+ * @var \Omeka\Entity\User $user
+ * @var \Guest\Form\AcceptTermsForm $form
+ * @var string $text
+ * @var string $page
+ */
+
+$plugins = $this->getHelperPluginManager();
+$translate = $plugins->get('translate');
+$guestNavigation = $plugins->get('guestNavigation')();
+
+$hasGuestNav = (bool) $guestNavigation->getContainer()->count();
+
+$this->htmlElement('body')->appendAttribute('class', 'guest accept-terms');
+$form->prepare();
+?>
+
+<?= $this->messages() ?>
+
+<?php if ($hasGuestNav): ?>
+<nav class="navigation-guest">
+    <?= $guestNavigation->menu()->renderMenu() ?>
+</nav>
+<?php endif; ?>
+
+<?= $this->pageTitle($translate('Accept terms and conditions')) ?>
+
+<?= $text ?>
+
+<?= $this->form()->openTag($form) ?>
+<?= $this->formCollection($form, false) ?>
+<?php $this->trigger('view.add.form.after'); ?>
+<div id="page-actions">
+    <button type="submit" class="button"><?= $translate('Accept') ?></button>
+</div>
+<?= $this->form()->closeTag() ?>
+
+<?php if ($page): ?>
+<?= sprintf($translate('The terms and conditions can be read %shere%s.'),
+    '<a href="' . $this->url('site/page', ['page-slug' => $page], [], true) . '">', '</a>') ?>
+<?php endif; ?>
+
+<?php $this->trigger('view.add.after'); ?>

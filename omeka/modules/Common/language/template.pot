@@ -1,0 +1,330 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-12 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/Mvc/Controller/Plugin/JSend.php:55
+msgid "Check your input for invalid data."
+msgstr ""
+
+#: src/Mvc/Controller/Plugin/JSend.php:74
+msgid "An internal error has occurred."
+msgstr ""
+
+#: src/Stdlib/PsrMessage.php:199
+msgid "default"
+msgstr ""
+
+#: Module.php:143
+msgid "Some indexes will be added to tables to improve performance: {list}."
+msgstr ""
+
+#: Module.php:156
+#, php-format
+msgid ""
+"Unable to add index \"%1$s\" in table \"%2$s\" to improve performance: %3$s"
+msgstr ""
+
+#: Module.php:165
+msgid "Some indexes were added to tables to improve performance: {list}."
+msgstr ""
+
+#: Module.php:186
+msgid "The module Generic is no longer needed and can be removed."
+msgstr ""
+
+#: src/Mvc/Controller/Plugin/SpecifyMediaType.php:150
+msgid ""
+"Xml parsing error level {level}, code {code}, for file \"{file}\" (media "
+"#{media_id}), line {line}, column {column}: {message}"
+msgstr ""
+
+#: src/Mvc/Controller/Plugin/SpecifyMediaType.php:172
+msgid ""
+"The file \"{file}\" (media #{media_id}) is not parsable by xml reader "
+"neither dom."
+msgstr ""
+
+#: src/Mvc/Controller/Plugin/SpecifyMediaType.php:289
+msgid ""
+"Warning: some files contain invalid unicode characters and cannot be "
+"processed directly."
+msgstr ""
+
+#: src/Mvc/Controller/Plugin/JSend.php:89
+#, php-format
+msgid "The status \"%s\" is not supported by jSend."
+msgstr ""
+
+#: src/View/Helper/MediaTypeSelect.php:40
+#: src/Service/Form/Element/MediaTypeSelectFactory.php:28
+msgid "Select media type…"
+msgstr ""
+
+#: src/I18n/Translator.php:50
+msgid "A message to translate should be stringable."
+msgstr ""
+
+#: src/Validator/Ini.php:32
+msgid "The string is not formatted as ini"
+msgstr ""
+
+#: src/Validator/Ini.php:33
+msgid "The string is incorrectly formatted"
+msgstr ""
+
+#: src/Validator/Ini.php:34
+msgid "The string contains double quotes or invalid characters"
+msgstr ""
+
+#: src/Validator/Ini.php:35
+msgid "Invalid type given. String expected"
+msgstr ""
+
+#: src/Validator/ReadableDirectory.php:21
+msgid "The path should not contain double dot or be hidden."
+msgstr ""
+
+#: src/Validator/ReadableDirectory.php:22
+msgid "The path does not exist."
+msgstr ""
+
+#: src/Validator/ReadableDirectory.php:23
+msgid "The path is not a directory"
+msgstr ""
+
+#: src/Validator/ReadableDirectory.php:24
+msgid "The path is not readable"
+msgstr ""
+
+#: src/Validator/ReadableDirectory.php:25
+msgid "The path is not inside the restricted path"
+msgstr ""
+
+#: src/Form/Element/AbstractGroupBySiteSelect.php:152
+msgid "[No site]"
+msgstr ""
+
+#: src/Form/Element/IniTextarea.php:127
+msgid "Invalid ini string or values with double quotes"
+msgstr ""
+
+#: src/Form/Element/IniTextarea.php:169
+msgid "The field {label} has an issue: {msg}"
+msgstr ""
+
+#: src/File/Validator.php:29
+msgid ""
+"Error validating \"{filename}\". Cannot store files with the media type "
+"\"{mediatype}\"."
+msgstr ""
+
+#: src/File/Validator.php:42
+msgid ""
+"Error validating \"{filename}\". Cannot store files with the resolved "
+"extension \"{extension}\"."
+msgstr ""
+
+#: src/Service/Form/Element/MediaIngesterSelectFactory.php:26
+msgid "Select media ingesters…"
+msgstr ""
+
+#: src/Service/Form/Element/MediaRendererSelectFactory.php:31
+msgid "Select media renderers…"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:73
+msgid "annotation"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:78
+msgid "resource"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:79
+msgid "property"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:80
+msgid "resource class"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:88
+msgid "annotations"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:89
+msgid "assets"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:90
+msgid "items"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:91
+msgid "item sets"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:93
+msgid "resources"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:94
+msgid "properties"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:95
+msgid "resource classes"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:96
+msgid "resource templates"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:97
+msgid "vocabularies"
+msgstr ""
+
+#: src/Stdlib/EasyMeta.php:98
+msgid "sites"
+msgstr ""
+
+#: ManageModuleAndResources.php:95
+msgid ""
+"An error occured when loading vocabulary \"{vocabulary}\": file has no json "
+"content."
+msgstr ""
+
+#: ManageModuleAndResources.php:102
+msgid ""
+"An error occured when adding the prefix \"{prefix}\": another vocabulary "
+"exists. Resolve the conflict before installing this module."
+msgstr ""
+
+#: ManageModuleAndResources.php:114
+msgid ""
+"A custom vocab exists for \"{name}\". Remove it or rename it before "
+"installing this module."
+msgstr ""
+
+#: ManageModuleAndResources.php:125
+msgid ""
+"A resource template exists for {template}. Rename it or remove it before "
+"installing this module."
+msgstr ""
+
+#: ManageModuleAndResources.php:329
+msgid "The vocabulary \"{vocabulary}\" was already installed and was kept."
+msgstr ""
+
+#: ManageModuleAndResources.php:339
+msgid ""
+"An error occured when adding the prefix \"{prefix}\": another vocabulary "
+"exists with the same prefix. Resolve the conflict before installing this "
+"module."
+msgstr ""
+
+#: ManageModuleAndResources.php:351
+msgid ""
+"An error occured when adding the prefix \"{prefix}\" and the associated "
+"properties: {message}"
+msgstr ""
+
+#: ManageModuleAndResources.php:430 ManageModuleAndResources.php:439
+msgid ""
+"An error occured when updating vocabulary \"{prefix}\" and the associated "
+"properties: {message}"
+msgstr ""
+
+#: ManageModuleAndResources.php:534
+msgid ""
+"The following \"{name}\" of the vocabulary \"{label}\" were replaced: "
+"{members}"
+msgstr ""
+
+#: ManageModuleAndResources.php:544
+msgid ""
+"Resources, values and templates were updated, but you may check settings "
+"where the old ones were used."
+msgstr ""
+
+#: ManageModuleAndResources.php:571
+msgid ""
+"The resource template named \"{template}\" is already available and is "
+"skipped."
+msgstr ""
+
+#: ManageModuleAndResources.php:775
+msgid "The custom vocab named \"{custom_vocab}\" is not available."
+msgstr ""
+
+#: ManageModuleAndResources.php:967
+msgid "No file or url set for the vocabulary."
+msgstr ""
+
+#: ManageModuleAndResources.php:977
+msgid "The file \"{file}\" cannot be read. Check the url."
+msgstr ""
+
+#: ManageModuleAndResources.php:987
+msgid "The file \"{file}\" cannot be read. Check the file."
+msgstr ""
+
+#: ManageModuleAndResources.php:1008
+msgid "A vocabulary must have a namespace uri and a prefix."
+msgstr ""
+
+#: TraitModule.php:113 TraitModule.php:987
+msgid "This module requires the module \"{module}\"."
+msgstr ""
+
+#: TraitModule.php:118
+msgid "This module requires modules \"{modules}\"."
+msgstr ""
+
+#: TraitModule.php:127
+msgid "This module has resources that cannot be installed."
+msgstr ""
+
+#: TraitModule.php:135
+msgid ""
+"This module cannot install its tables, because they exist already. Try to "
+"remove them first."
+msgstr ""
+
+#: TraitModule.php:463
+msgid "The module removed tables \"{tables}\" from a previous broken install."
+msgstr ""
+
+#: TraitModule.php:982
+msgid ""
+"This module requires the module \"{module}\", version {version} or above."
+msgstr ""
+
+#: TraitModule.php:1099
+msgid ""
+"The module \"{module}\" was automatically deactivated because the "
+"dependencies are unavailable."
+msgstr ""
+
+#: TraitModule.php:1121
+msgid "The directory \"{path}\" is not writeable."
+msgstr ""
+
+#: TraitModule.php:1132
+msgid "The directory \"{path}\" is not writeable: {error}."
+msgstr ""

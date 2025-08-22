@@ -1,0 +1,6 @@
+@media all {
+    .deduplicate .subhead::before,
+    .deduplicate .no-resources:before {
+        content: "";
+    }
+}

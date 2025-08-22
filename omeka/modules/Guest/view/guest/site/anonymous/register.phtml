@@ -1,0 +1,79 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\SiteRepresentation $site
+ * @var \Omeka\Form\UserForm $form
+ * @var string $htmlBeforeRegister
+ * @var string $htmlAfterRegister
+ */
+
+// Similar to log in with register.
+
+$plugins = $this->getHelperPluginManager();
+$trigger = $plugins->get('trigger');
+$setting = $plugins->get('setting');
+$escape = $plugins->get('escapeHtml');
+$translate = $plugins->get('translate');
+$hyperlink = $plugins->get('hyperlink');
+$pageTitle = $plugins->get('pageTitle');
+$siteSetting = $plugins->get('siteSetting');
+$htmlElement = $plugins->get('htmlElement');
+
+$breadcrumbs = $plugins->has('breadcrumbs') ? $plugins->get('breadcrumbs') : null;
+
+$htmlElement('body')->appendAttribute('class', 'guest guest-register');
+$form->prepare();
+
+$pageLabel = $siteSetting('guest_register_text') ?: ($setting('guest_register_text') ?: $translate('Register'));
+?>
+
+<?php if ($breadcrumbs): ?>
+    <?= $breadcrumbs() ?>
+<?php else: ?>
+<div class="breadcrumbs-parent">
+    <nav id="breadcrumb" class="breadcrumbs" aria-label="<?= $translate('Breadcrumb') ?>">
+        <ol>
+            <li><?= $hyperlink($translate('Home'), $site->siteUrl()) ?></li>
+            <li><span aria-current="page"><?= $escape($pageLabel) ?></span></li>
+        </ol>
+    </nav>
+</div>
+<?php endif; ?>
+
+<?= $pageTitle($pageLabel) ?>
+
+<div class="block block-group guest-anonymous">
+
+<?php if ($htmlBeforeRegister): ?>
+<div class="block block-html guest-anonymous">
+    <?= $htmlBeforeRegister ?>
+</div>
+<?php endif; ?>
+
+<div class="block block-register guest-anonymous guest-register">
+
+    <?= $this->messages() ?>
+
+    <div>
+        <?= $siteSetting('guest_capabilities') ?: $setting('guest_capabilities') ?>
+    </div>
+
+    <?= $this->form()->openTag($form) ?>
+        <?= $this->formCollection($form, false) ?>
+        <?php $trigger('view.add.form.after'); ?>
+        <div id="page-actions">
+            <button type="submit" class="button"><?= $translate('Register') ?></button>
+        </div>
+    <?= $this->form()->closeTag() ?>
+
+    <?php $trigger('view.add.after'); ?>
+
+</div>
+
+<?php if ($htmlAfterRegister): ?>
+<div class="block block-html guest-anonymous">
+    <?= $htmlAfterRegister ?>
+</div>
+<?php endif; ?>
+
+</div>

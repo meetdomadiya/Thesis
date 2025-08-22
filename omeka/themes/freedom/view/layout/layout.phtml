@@ -1,0 +1,91 @@
+<?php
+$siteTitle = $site->title();
+$userBar = $this->userBar();
+$header_layout = ($this->themeSetting('header_layout')) ?? 'inline';
+$body_class = 'main-header--' . $header_layout;
+$bannerHeightMobile = $this->themeSetting('banner_height_mobile');
+$bannerHeading = $this->themeSetting('banner_heading');
+$bannerDescription = $this->themeSetting('banner_description');
+$bannerHeightProperty = $bannerHeading || $bannerDescription ? 'min-height' : 'height';
+$primaryColor = $this->themeSetting('primary_color') ?? '#e77f11';
+
+$this->htmlElement('html')->setAttribute('lang', $this->lang());
+$this->headMeta()->setCharset('utf-8');
+$this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
+$this->headTitle($siteTitle)->setSeparator(' · ');
+$this->headTitle()->append($this->setting('installation_title', 'Omeka S'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/style.css'));
+$this->headLink()->prependStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
+$this->headLink()->prependStylesheet('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+$this->headLink()->prependStylesheet('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+$this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
+$this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
+
+
+
+// webcomponents loader (normal script)
+// webcomponents loader (normal script)
+// webcomponents loader (normal script)
+// webcomponents loader (normal script)  
+$this->headScript()->appendFile('https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-loader.js');
+
+// Add module script manually in your view template
+echo '<script type="module" src="https://cdn.jsdelivr.net/npm/@teipublisher/pb-components/dist/pb-components-bundle.js"></script>';
+
+$this->jsTranslate();
+$this->trigger('view.layout');
+
+if ($userBar) {
+	$this->htmlElement('body')->appendAttribute('class', 'user-bar');
+}
+?>
+
+<?php echo $this->doctype(); ?>
+<?php echo $this->htmlElement('html'); ?>
+	<head>
+		<?php echo $this->headMeta(); ?>
+		<?php echo $this->headTitle(); ?>
+		<?php echo $this->headLink(); ?>
+		<?php echo $this->headStyle(); ?>
+		
+		<?php echo $this->headScript(); ?>
+
+		<style type="text/css" media="screen">
+			:root {
+				--primary: <?php echo $primaryColor; ?>;
+				--primary-dark: <?php echo $this->ShadeColor($primaryColor, -10); ?>
+			}
+			
+			<?php if($bannerHeightMobile): ?>
+				@media screen and (max-width:768px) {
+					.banner {
+						<?php echo "{$bannerHeightProperty}: {$bannerHeightMobile} !important;"; ?>
+					}
+				}
+			<?php endif; ?>
+		</style>
+		
+		
+	</head>
+
+	<?php echo $this->htmlElement('body')->appendAttribute('class', $body_class); ?>
+		<a id="skipnav" href="#content"><?php echo $this->translate('Skip to main content'); ?></a>
+
+		<?php echo $this->partial('common/header', ['userBar' => $userBar, 'site' => $site]); ?>
+
+		<?php echo $this->partial('common/banner'); ?>
+
+		<div id="main-content" class="container" role="main">
+			<?php echo $this->content; ?>
+		</div>
+
+		<?php echo $this->partial('common/footer'); ?>
+		<?php echo $this->partial('common/menu-drawer'); ?>
+
+		<?php
+		echo $this->inlineScript()
+			->prependFile($this->assetUrl('js/navigation.js'))
+			->prependFile($this->assetUrl('js/script.js'));
+		?>
+	</body>
+</html>

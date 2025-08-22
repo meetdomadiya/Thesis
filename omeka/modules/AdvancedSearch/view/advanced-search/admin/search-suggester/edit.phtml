@@ -1,0 +1,34 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \AdvancedSearch\Form\Admin\SearchSuggesterForm $form
+ */
+
+$plugins = $this->getHelperPluginManager();
+$assetUrl = $plugins->get('assetUrl');
+$translate = $plugins->get('translate');
+
+$this->headLink()
+    ->appendStylesheet($assetUrl('css/advanced-search-manager.css', 'AdvancedSearch'));
+$this->headScript()
+    ->appendFile($assetUrl('js/advanced-search-manager.js', 'AdvancedSearch'), 'text/javascript', ['defer' => 'defer']);
+
+$this->htmlElement('body')->appendAttribute('class', 'search-admin search-suggester resource edit');
+
+$form->prepare();
+?>
+
+<?= $this->pageTitle($translate('Edit suggester'), 1, $translate('Search manager')) ?>
+
+<?= $this->form()->openTag($form) ?>
+<div id="page-actions">
+    <button type="submit" class="button"><?= $translate('Save') ?></button>
+</div>
+<?= $this->formCollection($form) ?>
+<?php $this->trigger('view.edit.form.after'); ?>
+<?= $this->form()->closeTag() ?>
+<?php $this->trigger('view.edit.after'); ?>
+
+<?php if (!$form->getOption('is_internal')): ?>
+    <?= $translate('Only the internal adapter can have settings for now. For external suggesters, use the direct url in the search config.') ?>
+<?php endif; ?>

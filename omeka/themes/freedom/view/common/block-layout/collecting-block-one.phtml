@@ -1,0 +1,39 @@
+<?php
+// themes/YourTheme/src/templates/common/block-layout/collecting-block-one.phtml
+
+// Grab current user and role
+/** @var \Omeka\Entity\User|null $user */
+$user = $this->identity();
+$role = $user ? $user->getRole() : null;
+
+// Define which roles may see the form
+$allowedRoles = [
+    'administrator',
+    'editor',
+];
+?>
+
+<?php if ($user && in_array($role, $allowedRoles, true)): ?>
+    <div class="collecting-block-form">
+        <h2><?= $this->escapeHtml($cForm->label()) ?></h2>
+        <?= $this->form($cForm->getForm()) ?>
+    </div>
+<?php elseif ($user): ?>
+    <div class="collecting-block-denied">
+        <p>Sorry, your account (role “<?= $this->escapeHtml($role) ?>”) is not permitted to upload documents.</p>
+    </div>
+<?php else: ?>
+    <div class="collecting-block-login-prompt">
+        <p>
+            You must 
+            <a href="<?= $this->url('site/guest/anonymous', ['site-slug' => $this->currentSite()->slug(), 'action' => 'login']) ?>">
+                log in
+            </a>
+            or
+            <a href="<?= $this->url('site/guest/anonymous', ['site-slug' => $this->currentSite()->slug(), 'action' => 'register']) ?>">
+                register
+            </a>
+            before you can upload documents.
+        </p>
+    </div>
+<?php endif; ?>

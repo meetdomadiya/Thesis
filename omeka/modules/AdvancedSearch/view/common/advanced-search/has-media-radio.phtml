@@ -1,0 +1,33 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var array $query
+ *
+ * Same as core template, with:
+ * - use radio;
+ * - add "any";
+ * - short echo.
+ */
+
+$translate = $this->plugin('translate');
+?>
+
+<?php
+$element = new \Laminas\Form\Element\Radio('has_media');
+$element
+    ->setLabel('Search by media presence') // @translate
+    ->setLabelAttributes(['class' => 'type-radio'])
+    ->setValueOptions([
+        '1' => 'Has media', // @translate
+        '0' => 'Has no media', // @translate
+        // Should be last because of "0".
+        '' => 'Any', // @translate
+    ])
+    ->setValue($query['has_media'] ?? '')
+    ->setAttributes([
+        'id' => 'has_media',
+        'class' => 'query-has-media',
+        'value' => $query['has_media'] ?? '',
+        'aria-label' => $translate('Search by media presence'), // @translate
+    ]);
+echo $this->formRow($element);

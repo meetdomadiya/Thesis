@@ -1,0 +1,108 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var array $query
+ *
+ * Same as core template, with:
+ * - include resource "without item set" (id = 0);
+ * - use chosen-select;
+ * - short echo.
+ */
+
+$plugins = $this->getHelperPluginManager();
+$status = $plugins->get('status');
+$translate = $plugins->get('translate');
+$hyperlink = $plugins->get('hyperlink');
+$siteSetting = $plugins->get('siteSetting');
+$itemSetSelect = $plugins->get('itemSetSelect');
+
+$isSiteRequest = $status->isSiteRequest();
+
+// Prepare the item set queries
+$inIds = $query['item_set_id'] ?? [];
+if (!is_array($inIds)) {
+    $inIds = [$inIds];
+}
+$inIds = array_filter($inIds);
+$notInIds = $query['not_item_set_id'] ?? [];
+if (!is_array($notInIds)) {
+    $notInIds = [$notInIds];
+}
+$notInIds = array_filter($notInIds);
+$itemSets = [];
+foreach ($inIds as $inId) {
+    $itemSets[] = ['id' => $inId, 'type' => 'in'];
+}
+foreach ($notInIds as $notInId) {
+    $itemSets[] = ['id' => $notInId, 'type' => 'not_in'];
+}
+if (!$itemSets) {
+    $itemSets[] = ['id' => null, 'type' => 'in'];
+}
+
+if ($isSiteRequest) {
+    $site = $this->layout()->site;
+    if (!$site->siteItemSets()) {
+        return;
+    }
+    $filterLocale = (bool) $siteSetting('filter_locale_values');
+    $lang = $this->lang();
+
+    $selectOptions = [
+        'disable_group_by_owner' => true,
+        'query' => ['site_id' => $site->id()],
+        'lang' => $filterLocale ? [$lang, ''] : null,
+        'prepend_value_options' => [
+            '0' => '[none]', // @translate
+        ],
+    ];
+} else {
+    $selectOptions = [
+        'prepend_value_options' => [
+            '0' => '[none]', // @translate
+        ],
+    ];
+}
+?>
+
+<div id="item-sets" class="field removable multi-value" role="group" aria-labelledby="by-item-set-label">
+    <div class="field-meta">
+        <span id="by-item-set-label" class="label"><?= $translate('Search by item set') ?></span>
+        <?= $hyperlink('', '#', ['class' => 'expand', 'title' => $translate('Expand')]) ?>
+        <div class="collapsible">
+            <div class="field-description"><?= $translate('Searches for items that are assigned to any of these item sets.') ?></div>
+        </div>
+        <button type="button" class="button add-value o-icon-add" aria-label="<?= $translate('Add new item set') ?>" title="<?= $translate('Add new item set') ?>"></button>
+    </div>
+    <div class="inputs">
+        <?php foreach ($itemSets as $itemSet): ?>
+        <div class="value">
+            <select class="item-set-select-type" aria-label="<?= $translate('Condition') ?>">
+                <option value="in"<?= 'in' === $itemSet['type'] ? ' selected' : '' ?>><?= $translate('In') ?></option>
+                <option value="not_in"<?= 'not_in' === $itemSet['type'] ? ' selected' : '' ?>><?= $translate('Not in') ?></option>
+            </select>
+            <?= $itemSetSelect([
+                'name' => 'not_in' === $itemSet['type'] ? 'not_item_set_id[]' : 'item_set_id[]',
+                'attributes' => [
+                    'value' => $itemSet['id'],
+                    'class' => 'item-set-select chosen-select',
+                    'aria-labelledby' => 'by-item-set-label',
+                ],
+                'options' => $selectOptions,
+            ]); ?>
+            <button type="button" class="button o-icon-delete remove-value" aria-label="<?= $translate('Remove value') ?>" title="<?= $translate('Remove value') ?>"></button>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+<script>
+$('#content').on('change', '.item-set-select-type', function() {
+    const typeSelect = $(this);
+    const itemSetSelect = typeSelect.closest('.value').find('.item-set-select');
+    if ('not_in' === typeSelect.val()) {
+        itemSetSelect.attr('name', 'not_item_set_id[]');
+    } else {
+        itemSetSelect.attr('name', 'item_set_id[]');
+    }
+});
+</script>

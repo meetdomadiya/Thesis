@@ -1,0 +1,130 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Api\Representation\AbstractResourceEntityRepresentation[] $resources
+ * @var \Deduplicate\Form\DeduplicateForm $form
+ * @var string $resourceType
+ * @var array $query
+ * @var \Omeka\Api\Representation\PropertyRepresentation $property
+ * @var string $value
+ * @var string $method
+ * @var int $totalResourcesQuery
+ * @var int $totalResources
+ */
+
+$plugins = $this->getHelperPluginManager();
+$url = $plugins->get('url');
+$setting = $plugins->get('setting');
+$escape = $plugins->get('escapeHtml');
+$assetUrl = $plugins->get('assetUrl');
+$translate = $plugins->get('translate');
+$escapeAttr = $plugins->get('escapeHtmlAttr');
+
+$maxResources = $setting('pagination_per_page') ?: \Omeka\Stdlib\Paginator::PER_PAGE;
+
+$this->headLink()
+    ->appendStylesheet($assetUrl('css/deduplicate.css', 'Deduplicate'));
+
+$this->htmlElement('body')->appendAttribute('class', 'deduplicate resources show manual');
+
+$form->prepare();
+
+$hasMultipleResources = $totalResources > 1;
+?>
+
+<?= $this->pageTitle($translate('Manual'), 1, $translate('Deduplicate')) ?>
+
+<div id="page-actions">
+    <?= $this->cancelButton() ?>
+    <button type="submit" class="button" name="deduplicate_all" form="form-deduplicate"><?= $escape('Search') ?></button>
+    <?php if ($hasMultipleResources): ?>
+    <button type="submit" class="button" name="deduplicate_submit" form="deduplicate-resource"><?= $escape('Merge') ?></button>
+    <?php endif; ?>
+</div>
+
+<nav class="section-nav">
+    <?= $this->navigation('Laminas\Navigation\Deduplicate')->menu() ?>
+</nav>
+
+<?php if ($totalResourcesQuery): ?>
+
+    <p class="explanation">
+        <?= sprintf('The query filtering resources returned %d resources.', $totalResourcesQuery) ?>
+    </p>
+
+    <p class="explanation">
+        <?= sprintf($translate('To refine the list, select a property and a value or select %sresources%s directly.'), '<a href="' . $url('admin/default', ['controller' => 'item']) . '"/>', '</a>') ?>
+    </p>
+
+<?php else: ?>
+
+    <p class="explanation">
+        <?= sprintf($translate('To get a list of resources to merge, select a property and a value or go to %sresources%s to filter them.'), '<a href="' . $url('admin/default', ['controller' => 'item']) . '"/>', '</a>') ?>
+    </p>
+
+<?php endif; ?>
+
+<?= $this->form($form); ?>
+
+<?php if ($totalResources): ?>
+    <?php if ($totalResources === 1): ?>
+    <p class="explanation">
+        <?= sprintf($translate('The query returned a single result.')) ?>
+    </p>
+    <?php elseif ($totalResources > $maxResources): ?>
+    <p class="explanation">
+        <?= $escape(sprintf($translate('The search returned %1$d resources. Only %2$d first ones are displayed. Other ones won’t be processed.'), $totalResources, $maxResources)) ?>
+    </p>
+    <?php endif; ?>
+
+    <?php if ($hasMultipleResources): ?>
+    <form id="deduplicate-resource" method="POST" name="deduplicate-resource">
+        <input type="hidden" name="query" value="<?= $escapeAttr(json_encode($query ?: array_map(fn ($v) => $v->id(), $resources), 320)) ?>"/>
+        <input type="hidden" name="resource_type" value="<?= $escapeAttr($resourceType) ?>"/>
+        <input type="hidden" name="deduplicate_property" value="<?= $property ? $escapeAttr($property->term()) : '' ?>"/>
+        <input type="hidden" name="deduplicate_value" value="<?= $escapeAttr($value) ?>"/>
+        <input type="hidden" name="method" value="<?= $escapeAttr($method) ?>"/>
+        <input type="hidden" name="csrf" value="<?= $form->get('csrf')->getValue() ?>"/>
+        <p>
+            <?= $translate('Select the resource to keep and the ones to merge.') ?>
+            <br/>
+            <?= $translate('Merge mode: remove all duplicate resources and update all linked resources to the one kept.') ?>
+        </p>
+    <?php endif; ?>
+
+    <?php foreach ($resources as $resource): ?>
+
+    <hr/>
+
+    <?php if ($hasMultipleResources): ?>
+    <div>
+        <input type="radio" name="resource_id" value="<?= $resource->id() ?>" aria-label="<?= $translate('Select resource to keep') ?>" required="required"><?= $translate('Keep') ?></input>
+        <input type="checkbox" name="resources_merged[]" value="<?= $resource->id() ?>" aria-label="<?= $translate('Select resource to merge') ?>"><?= $translate('Merge') ?></input>
+    </div>
+    <?php endif; ?>
+
+    <?= $resource->linkPretty() ?>
+
+    <div id="item-metadata" class="active section">
+        <?php if ($resource->resourceTemplate()): ?>
+            <div class="meta-group">
+                <h4><?= $translate('Template');?></h4>
+                <div class="value"><?= $escape($translate($resource->resourceTemplate()->label())) ?></div>
+            </div>
+        <?php endif; ?>
+        <?php if ($resource->resourceClass()): ?>
+            <div class="meta-group">
+                <h4><?= $translate('Class') ?></h4>
+                <div class="value"><?= $escape($translate($resource->resourceClass()->label())) ?></div>
+            </div>
+        <?php endif; ?>
+        <?= $resource->displayValues() ?>
+    </div>
+
+    <?php endforeach; ?>
+
+    <?php if ($hasMultipleResources): ?>
+    </form>
+    <?php endif; ?>
+
+<?php endif; ?>

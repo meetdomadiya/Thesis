@@ -1,0 +1,26 @@
+<?php
+
+$assetUrl = $this->plugin('assetUrl');
+$this->headLink()->appendStylesheet($assetUrl('css/style.css', 'PageBlocks'));
+
+?>
+
+<section class="team-members">
+    <?php if ($header): ?>
+        <h2><?= $header ?></h2>
+    <?php endif; ?>
+    <div class="team-members-container">
+        <?php foreach ($members as $member): ?>
+            <?php $avatar = $this->api()->read('assets', $member['avatar'])->getContent(); ?>
+            <article class="member-single">
+                <div class="member-avatar">
+                    <img src="<?= $avatar->assetUrl() ?>" alt="<?= $avatar->altText() ?>" />
+                </div>
+                <div class="member-tagline">
+                    <h3><?= $member['name'] ?></h3>
+                    <p><?= $member['description'] ?></p>
+                </div>
+            </article>
+        <?php endforeach; ?>
+    </div>
+</section>

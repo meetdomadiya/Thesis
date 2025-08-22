@@ -1,0 +1,16 @@
+<?php
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+
+$template = $escape($this->partial('common/admin/team-members-item'));
+?>
+
+<a href="#" class="collapse" aria-label="collapse">
+    <h4><?= $translate('Members') ?></h4>
+</a>
+<div class="attachments members collapsible" data-template="<?= $template ?>">
+    <button class="member-form-add" type="button"><?= $translate('Add member') ?></button>
+    <?php foreach ($members as $member) {
+        echo $this->partial('common/admin/team-members-item', ['member' => $member]);
+    } ?>
+</div>

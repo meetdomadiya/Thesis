@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Item ID: 77</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Logged by PdfToTei Module</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Omeka S Item Metadata</p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <projectDesc>
+        <p>Converted and structured from raw Xml/TEI and Omeka metadata.</p>
+      </projectDesc>
+    </encodingDesc>
+    <profileDesc>
+      <textClass>
+        <keywords>
+          <list>
+            <item>Vocational Description</item>
+            <item>Letter</item>
+          </list>
+        </keywords>
+        <note>Language: English; German vocational text.</note>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      <!-- Vocational description in German -->
+      <div type="vocationalDescription">
+        <head>Berufsbild des Damenschneiders (Damenschneiderin)</head>
+        <p>
+          Für Lehrzeit: die praktische Ausbildung in der Bekleidungsindustrie 3 Jahre.
+          Arbeitsgebiet: Zuschneiden, Nähen und Fertigstellen von Kleidern, Blusen,
+          Kostümen und Mänteln auch nach zeichnerischen Entwürfen. Pflegen und
+          Instandhalten der Arbeitsgeräte, Maschinen und Einrichtungen.
+        </p>
+        <p>
+          Notwendige Fertigkeiten und Kenntnisse: Kennenlernen der Werk- und Hilfsstoffe,
+          Eigenschaften und Verarbeitungsmöglichkeiten. Kennenlernen der Grundform der
+          weiblichen Kleidung, der Schnittformen und des Schnittauflegens. Vorrichten,
+          Vorheften, Vorstecken. Kennenlernen der Größenmaße, Messen, An- und Aufzeichnen
+          und Ausschneiden einzelner Teile. Handnähen in den verschiedenen Sticharten,
+          Maschinennähen, Knopflöcher, Schnürlöcher und Riegel. Schürzen von Hand und
+          maschinell. Herstellen und Anarbeiten des Zubehörs und des modischen Aufputzes.
+          Vor- und Abbügeln, Handhaben von Spezialmaschinen, Aufteilen des Stoffes,
+          Einfaches Werkzeichnen. Herstellen von Blusen und Kleidern oder Kostümen und
+          Mänteln, auch nach zeichnerischen Entwürfen. Pflegen und Instandhalten der
+          Arbeitsgeräte, Maschinen und Einrichtungen.
+        </p>
+        <p>
+          Erwünschte Zusatzfähigkeiten: Bei der Ausbildung im Nähen von Kleidern:
+          Einfache Arbeiten an Mänteln und umgekehrt.
+        </p>
+        <p>
+          Verlag: Bertelsmann Verlag KG Bielefeld. Bestell-Nr. 12.50.011.81a (anerkannt 1941).
+        </p>
+      </div>
+
+      <!-- Letter from B. Felsenthal to Rev. Isaac Leeser -->
+      <div type="letter">
+        <head>Letter from B. Felsenthal to Rev. Isaac Leeser</head>
+        <opener>
+          <date when="1862-02-24">Chicago, February 24, 1862</date>
+          <salute>Dear Sir,</salute>
+        </opener>
+        <p>
+          You conduct your paper always in such a fair manner that I suppose I shall not ask
+          in vain to do me the favor of granting some space, in the next number of the Occident,
+          to the enclosed card. Think whatever you may of my religious views &amp; c. I shall not
+          and will not say anything against your regarding these views erroneous, if you only
+          consider them honestly conceived and entertained.
+        </p>
+        <p>
+          But, I pray you, do not class me with those vainglorious braggarts who style themselves
+          Doctors, Professors, Reverends &amp;c. without blushing, and who, without the least
+          reluctance, publicly speak of their own selves as the pillars of Judaism and the
+          champions of Israel. The saying of Nittai the Arbelite, "Hebrew," is a very good maxim,
+          and, therefore, I dislike it in the highest degree to have even my name mentioned in one
+          and the same class with those pretentious impostors of which there are too many in America.
+        </p>
+        <closer>
+          <salute>Accept, reverend sir, the assurance of my high estimation.</salute>
+          <signed>
+            <persName>B. Felsenthal</persName>
+          </signed>
+        </closer>
+      </div>
+    </body>
+  </text>
+</TEI>
+

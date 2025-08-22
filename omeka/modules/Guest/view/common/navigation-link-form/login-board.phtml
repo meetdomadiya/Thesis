@@ -1,0 +1,35 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Omeka\Site\Navigation\Link\LinkInterface $link
+ * @var array $data
+ */
+
+$translate = $this->plugin('translate');
+$escape = $this->plugin('escapeHtml');
+
+$data = is_array($data) ? $data : [];
+$data = array_map('trim', $data) + [
+    'label-login' => '',
+    'label-board' => '',
+    'display-label' => '',
+];
+$data['display-label'] = $data['display-label'] === 'board' ? 'board' : 'username';
+?>
+
+<label><?= $translate('Type') ?> <input type="text" value="<?= $escape($translate($link->getName())) ?>" disabled="disabled"></label>
+<label><?= $translate('Label Log in') ?> <input type="text" data-name="label-login" value="<?= $escape($data['label-login']) ?>"></label>
+<label><?= $translate('Label My board') ?> <input type="text" data-name="label-board" value="<?= $escape($data['label-board']) ?>"></label>
+
+<label><?= $translate('Use name when connected') ?>
+    <select name="display-label" data-name="display-label" value="<?= $data['display-label'] ?>">
+        <?php // Because the value is not displayed correctly in the navigation form, the first option is always the selected one. ?>
+        <?php if ($data['display-label'] === 'board'): ?>
+        <option value="board" checked="checked"><?= $translate('Display label My board') ?></option>
+        <option value="username"><?= $translate('Display user name') ?></option>
+        <?php else: ?>
+        <option value="username" checked="checked"><?= $translate('Display user name') ?></option>
+        <option value="board"><?= $translate('Display label My board') ?></option>
+        <?php endif; ?>
+    </select>
+</label>

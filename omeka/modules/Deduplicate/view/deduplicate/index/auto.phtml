@@ -1,0 +1,92 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var \Deduplicate\Form\DeduplicateAutoForm $form
+ * @var string $resourceType
+ * @var \Omeka\Api\Representation\PropertyRepresentation $property
+ * @var array $query
+ * @var string $method
+ * @var array $duplicates
+ * @var array $skips
+ * @var int|bool $process
+ */
+
+$plugins = $this->getHelperPluginManager();
+$url = $plugins->get('url');
+$escape = $plugins->get('escapeHtml');
+$assetUrl = $plugins->get('assetUrl');
+$translate = $plugins->get('translate');
+$easyMeta = $plugins->get('easyMeta');
+$escapeAttr = $plugins->get('escapeHtmlAttr');
+
+$this->headLink()
+    ->appendStylesheet($assetUrl('css/deduplicate.css', 'Deduplicate'));
+
+$this->htmlElement('body')->appendAttribute('class', 'deduplicate resources show automatic');
+
+$form->prepare();
+
+$resourceType = $easyMeta->resourceType($resourceType);
+?>
+
+<?= $this->pageTitle($translate('Automatic'), 1, $translate('Deduplicate')) ?>
+
+<div id="page-actions">
+    <?= $this->cancelButton() ?>
+    <?php if (empty($duplicates)): ?>
+    <button type="submit" class="button" name="deduplicate_all" form="form-deduplicate-auto"><?= $escape('Search') ?></button>
+    <?php else: ?>
+    <button type="submit" class="button" name="deduplicate_submit" form="form-deduplicate-auto"><?= $escape('Deduplicate') ?></button>
+    <?php endif; ?>
+</div>
+
+<nav class="section-nav">
+    <?= $this->navigation('Laminas\Navigation\Deduplicate')->menu() ?>
+</nav>
+
+<?php if ($query): ?>
+    <p class="explanation">
+        <?= sprintf($translate('The process is done on a selection of %1$sresources%2$s.'), '<a href="' . $escapeAttr($url('admin/default', ['controller' => $resourceType, 'action' => 'browse'], ['query' => $query])) . '">', '</a>') ?>
+    </p>
+<?php endif; ?>
+
+<p class="explanation">
+    <?= $translate('Select a property: all resources with the same value, case insensitively or not, will be removed, except the first.') ?>
+</p>
+
+<p class="explanation">
+    <strong><?= $translate('WARNING:') ?></strong>
+    <?= $translate('It is strongly recommended to backup the database and files before processing.') ?>
+    <?= $translate('It is recommended to process on a selected list of resources too.') ?>
+</p>
+
+<?= $this->form($form); ?>
+
+<?php if (count($duplicates)):
+    $baseUrl = rtrim($url('admin/id', ['controller' => $resourceType, 'id' => '00']), '0');
+    ?>
+
+    <p class="explanation">
+        <?= $escape(sprintf(
+            $translate('The search returned %1$d values with duplicated resources for property %2$s.'),
+            count($duplicates), $easyMeta->propertyTerm($property)
+        )) ?>
+    </p>
+
+	<dl>
+	<?php foreach ($duplicates as $value => $resourceIds): ?>
+	<dt><?= $escape($value) ?></dt>
+	<dd>
+        #<a href="<?= $baseUrl . reset($resourceIds) ?>"><?= reset($resourceIds) ?></a> <?= $translate('[kept]') ?>
+		<?php array_shift($resourceIds); ?>
+        <?php foreach ($resourceIds as $resourceId): ?>
+        , #<a href="<?= $baseUrl . $resourceId ?>"><?= $resourceId ?></a>
+        <?php if (in_array($resourceId, $skips)): ?>
+        <?= $translate('[skipped]') ?>
+        <?php endif; ?>
+        <?php endforeach; ?>
+	</dd>
+	<?php endforeach; ?>
+	</dl>
+
+<?php endif; ?>

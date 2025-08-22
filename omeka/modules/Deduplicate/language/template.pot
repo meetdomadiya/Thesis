@@ -1,0 +1,297 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-17 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/scripts/upgrade.php:38 Module.php:70
+#, php-format
+msgid "The module %1$s should be upgraded to version %2$s or later."
+msgstr ""
+
+#: view/deduplicate/index/auto.phtml:32
+msgid "Automatic"
+msgstr ""
+
+#: view/deduplicate/index/auto.phtml:32 view/deduplicate/index/manual.phtml:35
+msgid "Deduplicate"
+msgstr ""
+
+#: view/deduplicate/index/auto.phtml:49
+#, php-format
+msgid "The process is done on a selection of %1$sresources%2$s."
+msgstr ""
+
+#: view/deduplicate/index/auto.phtml:54
+msgid ""
+"Select a property: all resources with the same value, case insensitively or "
+"not, will be removed, except the first."
+msgstr ""
+
+#: view/deduplicate/index/auto.phtml:58
+msgid "WARNING:"
+msgstr ""
+
+#: view/deduplicate/index/auto.phtml:59
+msgid ""
+"It is strongly recommended to backup the database and files before "
+"processing."
+msgstr ""
+
+#: view/deduplicate/index/auto.phtml:60
+msgid "It is recommended to process on a selected list of resources too."
+msgstr ""
+
+#: view/deduplicate/index/auto.phtml:71
+#, php-format
+msgid ""
+"The search returned %1$d values with duplicated resources for property %2$s."
+msgstr ""
+
+#: view/deduplicate/index/auto.phtml:80
+msgid "[kept]"
+msgstr ""
+
+#: view/deduplicate/index/auto.phtml:85
+msgid "[skipped]"
+msgstr ""
+
+#: view/deduplicate/index/manual.phtml:56
+#, php-format
+msgid ""
+"To refine the list, select a property and a value or select %sresources%s "
+"directly."
+msgstr ""
+
+#: view/deduplicate/index/manual.phtml:62
+#, php-format
+msgid ""
+"To get a list of resources to merge, select a property and a value or go to "
+"%sresources%s to filter them."
+msgstr ""
+
+#: view/deduplicate/index/manual.phtml:72
+msgid "The query returned a single result."
+msgstr ""
+
+#: view/deduplicate/index/manual.phtml:76
+#, php-format
+msgid ""
+"The search returned %1$d resources. Only %2$d first ones are displayed. "
+"Other ones won’t be processed."
+msgstr ""
+
+#: view/deduplicate/index/manual.phtml:89
+msgid "Select the resource to keep and the ones to merge."
+msgstr ""
+
+#: view/deduplicate/index/manual.phtml:91
+msgid ""
+"Merge mode: remove all duplicate resources and update all linked resources "
+"to the one kept."
+msgstr ""
+
+#: view/deduplicate/index/manual.phtml:101
+msgid "Select resource to keep"
+msgstr ""
+
+#: view/deduplicate/index/manual.phtml:101
+msgid "Keep"
+msgstr ""
+
+#: view/deduplicate/index/manual.phtml:102
+msgid "Select resource to merge"
+msgstr ""
+
+#: view/deduplicate/index/manual.phtml:102
+msgid "Merge"
+msgstr ""
+
+#: data/scripts/upgrade.php:46
+msgid "It is now possible to delete duplicates automatically."
+msgstr ""
+
+#: src/Job/DeduplicateResources.php:35 src/Job/DeduplicateResources.php:59
+msgid "There is no resource to merge."
+msgstr ""
+
+#: src/Job/DeduplicateResources.php:45
+msgid "There is no resource #{resource_id} to merge."
+msgstr ""
+
+#: src/Job/DeduplicateResources.php:102
+msgid "{count} resources have been merged inside resource #{resource_id}."
+msgstr ""
+
+#: src/Form/DeduplicateAutoForm.php:19 src/Form/DeduplicateForm.php:19
+msgid "Property to deduplicate on"
+msgstr ""
+
+#: src/Form/DeduplicateAutoForm.php:28 src/Form/DeduplicateForm.php:28
+msgid "Select a property…"
+msgstr ""
+
+#: src/Form/DeduplicateAutoForm.php:35 src/Form/DeduplicateForm.php:45
+msgid "Heuristic to find similar values"
+msgstr ""
+
+#: src/Form/DeduplicateAutoForm.php:37
+msgid "Equal (exactly)"
+msgstr ""
+
+#: src/Form/DeduplicateAutoForm.php:38
+msgid "Equal (case insensitive)"
+msgstr ""
+
+#: src/Form/DeduplicateAutoForm.php:51
+msgid "Process"
+msgstr ""
+
+#: src/Form/DeduplicateForm.php:46
+msgid "Different algorithms can be used to detect \"similar\" values."
+msgstr ""
+
+#: src/Form/DeduplicateForm.php:49
+msgid "Equal"
+msgstr ""
+
+#: src/Form/DeduplicateForm.php:50
+msgid "Similar text"
+msgstr ""
+
+#: src/Form/DeduplicateForm.php:51
+msgid "Levenshtein distance"
+msgstr ""
+
+#: src/Form/DeduplicateForm.php:52
+msgid "Metaphone"
+msgstr ""
+
+#: src/Form/DeduplicateForm.php:53
+msgid "Soundex"
+msgstr ""
+
+#: src/Controller/IndexController.php:103
+msgid "A property to deduplicate on is required."
+msgstr ""
+
+#: src/Controller/IndexController.php:136
+msgid "There are no duplicates for the property {property}."
+msgstr ""
+
+#: src/Controller/IndexController.php:144
+msgid "There are {count} duplicates for the property {property}."
+msgstr ""
+
+#: src/Controller/IndexController.php:167
+msgid ""
+"{count} resources are duplicated with several values and are kept: "
+"{resource_ids}"
+msgstr ""
+
+#: src/Controller/IndexController.php:186
+msgid ""
+"Confirm removing duplicates, except the first, by checking the checkbox."
+msgstr ""
+
+#: src/Controller/IndexController.php:193
+msgid "You cannot change property when submitting form."
+msgstr ""
+
+#: src/Controller/IndexController.php:215
+msgid ""
+"No duplicates were removed, because duplicated resources have multiple "
+"duplicate values."
+msgstr ""
+
+#: src/Controller/IndexController.php:222
+msgid "An error occurred when deleting duplicates: {msg}."
+msgstr ""
+
+#: src/Controller/IndexController.php:238
+#: src/Controller/IndexController.php:474
+msgid ""
+"Processing deduplication in background (job {link}#{job_id}{link_end}, "
+"{link_log}logs{link_end})."
+msgstr ""
+
+#: src/Controller/IndexController.php:259
+msgid "{count} duplicates were removed."
+msgstr ""
+
+#: src/Controller/IndexController.php:297
+msgid "The property {property} does not exist."
+msgstr ""
+
+#: src/Controller/IndexController.php:308
+msgid "A value to deduplicate on is required."
+msgstr ""
+
+#: src/Controller/IndexController.php:313
+msgid "A property is required to search on."
+msgstr ""
+
+#: src/Controller/IndexController.php:320
+msgid "The string is too long (more than {length} characters)."
+msgstr ""
+
+#: src/Controller/IndexController.php:352
+msgid "The query does not find selected resource ids."
+msgstr ""
+
+#: src/Controller/IndexController.php:367
+msgid "The query returned no resource."
+msgstr ""
+
+#: src/Controller/IndexController.php:383
+msgid ""
+"There are too many similar values near \"{value}\". You may filter resources "
+"first."
+msgstr ""
+
+#: src/Controller/IndexController.php:389
+msgid "There is no existing value for property {property} near \"{value}\"."
+msgstr ""
+
+#: src/Controller/IndexController.php:423
+msgid "The resource #{resource_id} does not exist."
+msgstr ""
+
+#: src/Controller/IndexController.php:437
+msgid "Some merged resources do not exist."
+msgstr ""
+
+#: src/Controller/IndexController.php:602
+msgid ""
+"The value {value} has too much duplicates and will requires a second "
+"deduplication."
+msgstr ""
+
+#: config/module.config.php:91
+msgid "Deduplicate all resources"
+msgstr ""
+
+#: config/module.config.php:92
+msgid "Deduplicate all resources automatically"
+msgstr ""
+
+#: config/module.config.php:93
+msgid "Deduplicate selected resources"
+msgstr ""
+
+#: config/module.config.php:94
+msgid "Deduplicate selected resources automatically"
+msgstr ""

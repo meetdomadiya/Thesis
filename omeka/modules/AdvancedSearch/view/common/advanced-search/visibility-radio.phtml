@@ -1,0 +1,33 @@
+<?php
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this
+ * @var array $query
+ *
+ * Same as core template, with:
+ * - use radio;
+ * - add "any";
+ * - short echo.
+ */
+
+$translate = $this->plugin('translate');
+?>
+
+<?php
+$element = new \Laminas\Form\Element\Radio('is_public');
+$element
+    ->setLabel('Search by visibility') // @translate
+    ->setLabelAttributes(['class' => 'type-radio'])
+    ->setValueOptions([
+        '1' => 'Public', // @translate
+        '0' => 'Not public', // @translate
+        // Should be last because of "0".
+        '' => 'Any', // @translate
+    ])
+    ->setValue($query['is_public'] ?? '')
+    ->setAttributes([
+        'id' => 'is_public',
+        'class' => 'query-visibility',
+        'value' => $query['is_public'] ?? '',
+        'aria-label' => $translate('Visibility'), // @translate
+    ]);
+echo $this->formRow($element);

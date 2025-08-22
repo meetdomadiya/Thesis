@@ -1,0 +1,18 @@
+<?php
+$translate = $this->plugin('translate');
+?>
+
+<div class="attachment">
+    <span class="sortable-handle"></span>
+    <div class="asset-title"><?= $member['name'] ?? '' ?></div>
+
+    <ul class="actions">
+        <li><a class="member-form-edit o-icon-configure button" title="<?= $translate('Open asset options') ?>" aria-label="<?= $translate('Open asset options') ?>"></a></li>
+        <li class="delete"><a class="o-icon-delete button" title="<?= $translate('Delete attachment') ?>" href="#" aria-label="<?= $translate('Delete attachment') ?>"></a></li>
+        <li class="undo"><a class="o-icon-undo button" title="<?= $translate('Restore attachment') ?>" href="#" aria-label="<?= $translate('Restore attachment') ?>"></a></li>
+    </ul>
+    
+    <input type="hidden" data-sidebar-id="member-data-name" name="o:block[__blockIndex__][o:data][members][__attachmentIndex__][name]" value="<?= $member['name'] ?? '' ?>">
+    <input type="hidden" data-sidebar-id="member-data-description" name="o:block[__blockIndex__][o:data][members][__attachmentIndex__][description]" value="<?= $member['description'] ?? '' ?>">
+    <input type="hidden" data-sidebar-id="member-data-avatar" name="o:block[__blockIndex__][o:data][members][__attachmentIndex__][avatar]" value="<?= $member['avatar'] ?? '' ?>">
+</div>
