@@ -2,12 +2,16 @@
 $translate = $this->plugin('translate');
 $escape = $this->plugin('escapeHtml');
 $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
+
+// TEI Publisher CSS + JS
+$this->headLink()->appendStylesheet('http://127.0.0.1:8080/exist/apps/tei-publisher/resources/css/theme.css');
+echo '<script type="module" src="http://127.0.0.1:8080/exist/apps/tei-publisher/resources/scripts/pb-components-bundle.js"></script>';
+
 $this->htmlElement('body')->appendAttribute('class', 'item resource show');
 $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();
 $valueLang = $filterLocale ? [$lang, ''] : null;
 
-// Get the current item ID
 $itemId = $item->id();
 
 // Regions
@@ -18,13 +22,11 @@ $leftSidebarHasBlocks = $leftSidebarBlockContent->hasBlocks();
 $rightSidebarBlockContent = $this->resourcePageBlocks($item, 'right');
 $rightSidebarHasBlocks = $rightSidebarBlockContent->hasBlocks();
 ?>
-<div class="pb-page-test" data-endpoint="…" data-url-path="…" data-api-version="1.0.0">
- PB-Page placeholder
-</div>
 
 <?php echo $this->ResourceTags($item); ?>
 <?php echo $this->pageTitle($item->displayTitle(null, $valueLang), 1); ?>
 <?php $this->trigger('view.show.before'); ?>
+
 <?php if ($mainHasBlocks || $leftSidebarHasBlocks || $rightSidebarHasBlocks): ?>
 <?php
 $additionalContainerClasses = '';
@@ -42,6 +44,7 @@ if ($mainHasBlocks && $leftSidebarHasBlocks && $rightSidebarHasBlocks) {
 </div>
 </div>
 <?php endif; ?>
+
 <?php if ($mainHasBlocks && $blockContent = $mainBlockContent->getBlocks()): ?>
 <div class="main-region">
 <div class="metadata">
@@ -49,6 +52,7 @@ if ($mainHasBlocks && $leftSidebarHasBlocks && $rightSidebarHasBlocks) {
 </div>
 </div>
 <?php endif; ?>
+
 <?php if ($rightSidebarHasBlocks && $blockContent = $rightSidebarBlockContent->getBlocks()): ?>
 <div class="sidebar-region sidebar-region--right">
 <div class="metadata">
@@ -58,66 +62,57 @@ if ($mainHasBlocks && $leftSidebarHasBlocks && $rightSidebarHasBlocks) {
 <?php endif; ?>
 </div>
 <?php endif; ?>
+
+
+<!-- TEI Publisher Integration -->
+<div class="tei-publisher-container" style="margin-top: 2em; padding: 1em; border: 1px solid #ddd; border-radius: 8px;">
+    <h3>TEI Document Viewer</h3>
+    
+    <!-- Viewer -->
+    <pb-page endpoint="http://127.0.0.1:8080/exist/apps/tei-publisher/" url-path="query" api-version="1.0.0" lang="en">
+        <pb-document 
+            id="document1" 
+            path="test/item_<?php echo $itemId; ?>.xml" 
+            odd="shakespeare" 
+            view="page">
+        </pb-document>
+
+        <pb-view 
+            id="view1" 
+            src="document1"
+            subscribe="document1"
+            style="min-height: 400px; border: 1px solid #eee; padding: 1em;">
+        </pb-view>
+    </pb-page>
+
+    <!-- Simple link to open editor in new tab -->
+    <div style="margin-top:1em;">
+        <pb-edit-xml path="/db/apps/tei-publisher/data/test/item_<?php echo $itemId; ?>.xml">View Documentation</pb-edit-xml>
+    </div>
+</div>
+
 <?php $this->trigger('view.show.after'); ?>
 
-<pb-page endpoint="http://127.0.0.1:8080/exist/apps/tei-publisher/" url-path="query" api-version="1.0.0">
-
-    <pb-document 
-        id="document1" 
-        path="test/item_<?php echo $itemId; ?>.xml" 
-        odd="shakespeare" 
-        view="page">
-    </pb-document>
-
-    <div style="margin-bottom: 1em;">
-        <button id="toggleBtn">Switch to Edit Mode</button>
-        <button id="saveBtn" style="display:none;">Save Changes</button>
-    </div>
-
-    <!-- View mode -->
-    <pb-view id="view1" src="document1"></pb-view>
-
-    <!-- Edit mode -->
-    <pb-edit-xml 
-        id="xmlEditor"
-        style="display:none; height: 70vh;"
-        src="document1"
-        save-url="http://127.0.0.1:8080/exist/rest/db/apps/tei-publisher/data/test/item_<?php echo $itemId; ?>.xml">
-    </pb-edit-xml>
-
-</pb-page>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.getElementById("toggleBtn");
-    const saveBtn = document.getElementById("saveBtn");
-    const view = document.getElementById("view1");
-    const editor = document.getElementById("xmlEditor");
-
-    let editing = false;
-
-    toggleBtn.addEventListener("click", () => {
-        editing = !editing;
-        if (editing) {
-            view.style.display = "none";
-            editor.style.display = "block";
-            toggleBtn.textContent = "Switch to View Mode";
-            saveBtn.style.display = "inline-block";
-        } else {
-            view.style.display = "block";
-            editor.style.display = "none";
-            toggleBtn.textContent = "Switch to Edit Mode";
-            saveBtn.style.display = "none";
-        }
-    });
-
-    saveBtn.addEventListener("click", () => {
-        editor.save().then(() => {
-            alert("XML saved successfully!");
-        }).catch(err => {
-            console.error(err);
-            alert("Error saving XML");
-        });
-    });
-});
-</script>
+<style>
+.tei-publisher-container {
+    background-color: #f8f9fa;
+}
+.btn {
+    padding: 8px 16px;
+    margin: 0 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+}
+.btn:hover {
+    opacity: 0.9;
+}
+pb-view {
+    display: block;
+    width: 100%;
+}
+</style>
